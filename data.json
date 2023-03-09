@@ -25,19 +25,19 @@
             "name" : "Donovan Mitchell",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3908809/donovan-mitchell",
             "description" : "",
-            "picture" : ""
+            "picture" : "../images/DonMitchell.webp"
         },
         {
             "name" : "Devin Booker",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3136193/devin-booker",
             "description" : "",
-            "picture" : ""
+            "picture" : "../images/DevinBooker.webp"
         },
         {
             "name" : "James Harden",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3992/james-harden",
             "description" : "",
-            "picture" : ""
+            "picture" : "../images/JamesHarden.webp"
         }
     ]
 }
