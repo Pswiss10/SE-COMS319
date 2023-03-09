@@ -4,19 +4,19 @@
             "name" : "Luka Doncic",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3945274/luka-doncic",
             "description" : "Luka Doncic has been on an incredible 2022-2023 season, being the first ever player to get a 60/20/10 triple double. With his high Assist Ratio, shot percentage, and incredible playmaking skills; Luka deserves to be on the top of this list.",
-            "picture" : "../images/lucaD.webp"
+            "picture" : "./images/lucaD.webp"
         },
         {
             "name" : "Damian Lillard",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/6606/damian-lillard",
-            "description" : "Damian Lillard has also had a great 2023 season. With a Higher point average then Shai, but lower field goal percentage. With slightly worse stats to Shai, Damian should be right behind him at number 3.",
-            "picture" : "../images/Damian-Lillard.webg"
+            "description" : "Damian Lillard has also had a great 2023 season. With a Higher point average then Shai, but lower field goal percentage. With slightly worse stats to Shai, Damian should be right behind him at number 2.",
+            "picture" : "./images/Damian-Lillard.webg"
         },
         {
             "name" : "Shai Gilgeous-Alexander",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/4278073/shai-gilgeous-alexander",
-            "description" : "Shai Gilgeous-Alexander has been having a tremendous season this year. Averaging 30.9 points per game and a high Field goal percentage, Shai makes his way to the number 2 spot.",
-            "picture" : "../images/shaiGA.webp"
+            "description" : "Shai Gilgeous-Alexander has been having a tremendous season this year. Averaging 30.9 points per game and a high Field goal percentage, Shai makes his way to the number 3 spot.",
+            "picture" : "./images/shaiGA.webp"
         }
     ],
 
@@ -25,19 +25,19 @@
             "name" : "Donovan Mitchell",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3908809/donovan-mitchell",
             "description" : "",
-            "picture" : "../images/DonMitchell.webp"
+            "picture" : "./images/DonMitchell.webp"
         },
         {
             "name" : "Devin Booker",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3136193/devin-booker",
             "description" : "",
-            "picture" : "../images/DevinBooker.webp"
+            "picture" : "./images/DevinBooker.webp"
         },
         {
             "name" : "James Harden",
             "link" : "https://insider.espn.com/nba/player/hollinger/_/id/3992/james-harden",
             "description" : "",
-            "picture" : "../images/JamesHarden.webp"
+            "picture" : "./images/JamesHarden.webp"
         }
     ]
 }
