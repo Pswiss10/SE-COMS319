@@ -72,10 +72,10 @@ function mouseOverHandler(event) {
                 flavorText = playerData.pGaurds[0].description;
                 break;
             case "shaiCard":
-                flavorText = playerData.pGaurds[1].description;
+                flavorText = playerData.pGaurds[2].description;
                 break;
             case "dameCard":
-                flavorText = playerData.pGaurds[2].description;
+                flavorText = playerData.pGaurds[1].description;
                 break;
             case "donCard":
                 flavorText = playerData.sGaurds[0].description;
