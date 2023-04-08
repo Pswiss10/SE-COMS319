@@ -32,18 +32,18 @@ const Shop = () => {
 
     const cartItems = cart.map((el) => (
         <div key={el.id}>
-        <img class="img-fluid" src={el.image} width={30} />
+        <img class="img-fluid" src={el.image} width={100} />
         {el.title}
-        ${el.price}
+         ${el.price}
         </div>
     ));
 
     const listItems = items.map((el) => (
         <div key={el.id}>
-        <img class="img-fluid" src={el.image} width={100} />
+        <img class="img-fluid" src={el.image} width={150} />
         {el.title}
         {el.category}
-        {el.price}
+         ${el.price}
         <button type="button" onClick={() => removeFromCart(el)}>-</button>{" "}
         <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
         </div>
