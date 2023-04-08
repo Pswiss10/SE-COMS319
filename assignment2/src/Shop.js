@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
 import 'bootstrap/dist/css/bootstrap.css';
 
-const Shop = () => {
+
+const Shop = (props) => {
+   
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
     
@@ -11,7 +13,6 @@ const Shop = () => {
     useEffect(() => {
         total();
         }, [cart]);
-    
     
     const total = () => {
         let totalVal = 0;
@@ -40,7 +41,7 @@ const Shop = () => {
     ));
 
     const listItems = items.map((el) => (
-        <div key={el.id}>
+        <div key={el.id} class="my-0">
         <img class="img-fluid" src={el.image} width={150} alt={el.description}/>
         {el.title}
         {el.category}
