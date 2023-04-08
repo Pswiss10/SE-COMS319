@@ -43,8 +43,7 @@ const Shop = (props) => {
     const listItems = items.map((el) => (
         <div key={el.id} class="my-0">
         <img class="img-fluid" src={el.image} width={150} alt={el.description}/>
-        {el.title}
-        {el.category}
+        {el.title} - 
          ${el.price}
         <button type="button" classname="btn btn-primary" onClick={() => removeFromCart(el)}>-</button>{" "}
         <button type="button" classname="btn btn-primary" variant="light" onClick={() => addToCart(el)}> + </button>
