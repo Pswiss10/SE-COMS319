@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Shop = () => {
     const [cart, setCart] = useState([]);
@@ -32,7 +33,7 @@ const Shop = () => {
 
     const cartItems = cart.map((el) => (
         <div key={el.id}>
-        <img class="img-fluid" src={el.image} width={100} />
+        <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
         {el.title}
          ${el.price}
         </div>
@@ -40,12 +41,12 @@ const Shop = () => {
 
     const listItems = items.map((el) => (
         <div key={el.id}>
-        <img class="img-fluid" src={el.image} width={150} />
+        <img class="img-fluid" src={el.image} width={150} alt={el.description}/>
         {el.title}
         {el.category}
          ${el.price}
-        <button type="button" onClick={() => removeFromCart(el)}>-</button>{" "}
-        <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
+        <button type="button" classname="btn btn-primary" onClick={() => removeFromCart(el)}>-</button>{" "}
+        <button type="button" classname="btn btn-primary" variant="light" onClick={() => addToCart(el)}> + </button>
         </div>
         ));
 
@@ -53,9 +54,9 @@ const Shop = () => {
         return (
             <div>
             <div>{listItems}</div>
-            <div>Itesm in Cart :</div>
+            <div>Items in Cart :</div>
             <div>{cartItems}</div>
-            <div>Order total to pay :{cartTotal}</div>
+            <div>Order total to pay : ${cartTotal}</div>
             </div>
             );
 }
