@@ -11,32 +11,47 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentView: 'Shop',
+      cartItems:[],
     };
     this.handleViewChange = this.handleViewChange.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
   }
 
   handleViewChange(view) {
     this.setState({ currentView: view });
-    if (view === 'Cart') {
-      this.setState({ cartItems: this.state.cart });
-    }
+  }
+
+  addToCart(el) {
+    this.setState(prevState => ({
+      cartItems: [...prevState.cartItems, el]
+    }));
+  }
+
+  removeFromCart(el) {
+    this.setState(prevState => ({
+      cartItems: prevState.cartItems.filter((cartItem) => cartItem.id !== el.id)
+    }));
   }
 
   render() {
     let view;
 
     if (this.state.currentView === 'Shop') {
+
       view = <React.StrictMode>
-        <Shop addToCart={this.addToCart} />
+        <Shop addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems} />
         <button onClick={() => this.handleViewChange('Cart')}>Checkout</button>
         </React.StrictMode>;
     } else if (this.state.currentView === 'Cart') {
+
       view = <React.StrictMode>
         <button onClick={() => this.handleViewChange('Shop')}>Return to List</button>
-        <Cart cartItems={this.state.cart} />
+        <Cart cartItems={this.state.cartItems} />
         <button onClick={() => this.handleViewChange('Info')}>Confirm Purchase</button>
         </React.StrictMode>;
     } else if (this.state.currentView === 'Info') {
+      
       view = <React.StrictMode>
       <Info />
       <button onClick={() => this.handleViewChange('Shop')}>Home Page</button>

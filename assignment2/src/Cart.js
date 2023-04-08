@@ -8,18 +8,18 @@ const Cart = (props) => {
     const cartItems = props.cartItems;
     // rest of the component code
 
-// const cartItemsList = cartItems.map((el) => (
-//     <div key={el.id}>
-//       <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
-//       {el.title}
-//       ${el.price}
-//     </div>
-//   ));
+const cartItemsList = cartItems.map((el) => (
+    <div key={el.id}>
+      <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
+      {el.title}
+      ${el.price}
+    </div>
+  ));
   
   return (
     <div>
       <div>Items in Cart :</div>
-      <div></div>
+      <div>{cartItemsList}</div>
     </div>
   );
 };
