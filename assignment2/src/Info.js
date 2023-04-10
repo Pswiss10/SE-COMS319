@@ -5,7 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Info = (props) => {
 
-    const cartItems = props.cartItems;
+
+
+
     // rest of the component code
 
 // const cartItemsList = cartItems.map((el) => (
@@ -18,8 +20,8 @@ const Info = (props) => {
   
   return (
     <div>
-      <div>Thank you for your purchase</div>
-      <div></div>
+      <div>Thank you for your purchase.</div>
+      <div>Order Summary:</div>
     </div>
   );
 };
