@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import Shop from "./Shop.js";
 import Cart from "./Cart.js";
 import Info from "./Info.js";
@@ -14,8 +14,6 @@ class App extends React.Component {
       cartTotal: 0,
       cartItems:[],
       FormData: {},
-      itemQuantities: [],
-      uniqueItems: [],
     };
     this.handleViewChange = this.handleViewChange.bind(this);
     this.addToCart = this.addToCart.bind(this);
@@ -49,8 +47,8 @@ class App extends React.Component {
   handleSubmit = (formData) => {
     formData.preventDefault(); 
     const data = new FormData(formData.target);
-    console.log(data.get("name"));
-    console.log(data.get("email")); 
+    console.log(data.get("ccn"));
+    console.log(data.get("zip")); 
     if (data.get("ccn").length !== 16){
       alert("Please enter a 16 digit CCN");
       return;
@@ -75,13 +73,13 @@ class App extends React.Component {
     } else if (this.state.currentView === 'Cart') {
 
       view = <React.StrictMode>
-        <button onClick={() => this.handleViewChange('Shop')}>Return to List</button>
+        <button onClick={() => this.handleViewChange('Shop')}>Return to List</button> <button onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()}>Cancel Purchase</button>
         <Cart cartItems={this.state.cartItems} cartTotal={this.state.cartTotal} onSubmit={this.handleSubmit}/>
         </React.StrictMode>;
     } else if (this.state.currentView === 'Info') {
 
       view = <React.StrictMode>
-      <Info formData={this.state.formData}/>
+      <Info cartItems={this.state.cartItems} formData={this.state.formData}/>
       <button onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()}>Home Page</button>
       </React.StrictMode>;
     }
@@ -90,4 +88,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <App />
+);
