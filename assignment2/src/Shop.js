@@ -22,41 +22,41 @@ const Shop = (props) => {
         setCartTotal(totalVal);
         };
 
-    const addToCart = (el) => {
-        setCart([...cart, el]);
-        };
+    // const addToCart = (el) => {
+    //     setCart([...cart, el]);
+    //     };
 
-    const removeFromCart = (el) => {
-        let hardCopy = [...cart];
-        hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
-        setCart(hardCopy);
-        };
+    // const removeFromCart = (el) => {
+    //     let hardCopy = [...cart];
+    //     hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    //     setCart(hardCopy);
+    //     };
 
-    const cartItems = cart.map((el) => (
+    const cartItems = props.cartItems;
+
+    const cartItemList = cartItems.map((el) => (
         <div key={el.id}>
-        <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
-        {el.title}
-         ${el.price}
+           <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
+          {el.title} - ${el.price}
         </div>
-    ));
+      ));
 
     const listItems = items.map((el) => (
-        <div key={el.id} class="my-0">
+        <div key={el.id}>
         <img class="img-fluid" src={el.image} width={150} alt={el.description}/>
         {el.title} - 
          ${el.price}
-        <button type="button" classname="btn btn-primary" onClick={() => removeFromCart(el)}>-</button>{" "}
-        <button type="button" classname="btn btn-primary" variant="light" onClick={() => addToCart(el)}> + </button>
+        <button type="button" classname="btn btn-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
+        <button type="button" classname="btn btn-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
         </div>
         ));
 
 
         return (
             <div>
-            <div>{listItems}</div>
-            <div>Items in Cart :</div>
-            <div>{cartItems}</div>
-            <div>Order total to pay : ${cartTotal}</div>
+                <div>{listItems}</div>
+                <div>Items in Cart :</div>
+                <div>{cartItemList}</div>
             </div>
             );
 }
