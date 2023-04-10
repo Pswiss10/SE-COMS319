@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SE-COMS319/static/css/main.8d6a17ca.css",
+    "main.js": "/SE-COMS319/static/js/main.852768ee.js",
+    "index.html": "/SE-COMS319/index.html",
+    "main.8d6a17ca.css.map": "/SE-COMS319/static/css/main.8d6a17ca.css.map",
+    "main.852768ee.js.map": "/SE-COMS319/static/js/main.852768ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d6a17ca.css",
+    "static/js/main.852768ee.js"
+  ]
+}
