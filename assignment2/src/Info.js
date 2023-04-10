@@ -18,7 +18,7 @@ const Info = (props) => {
   
   return (
     <div>
-      <div>Items in Cart :</div>
+      <div>Thank you for your purchase</div>
       <div></div>
     </div>
   );

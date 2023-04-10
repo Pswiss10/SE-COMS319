@@ -11,15 +11,26 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentView: 'Shop',
+      cartTotal: 0,
       cartItems:[],
+      FormData: {},
+      cartItemsWQuant: [],
     };
     this.handleViewChange = this.handleViewChange.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
   }
 
+  clearCart(){
+    this.setState({cartItems: []});
+  }
+
   handleViewChange(view) {
-    this.setState({ currentView: view });
+    if (this.state.currentView === 'Cart' && this.state.cartItems.length === 0 && view === 'Info'){
+      console.log("no items in cart");
+    } else {
+      this.setState({ currentView: view });
+    }
   }
 
   addToCart(el) {
@@ -34,6 +45,23 @@ class App extends React.Component {
     }));
   }
 
+  handleSubmit = (formData) => {
+    formData.preventDefault(); 
+    const data = new FormData(formData.target);
+    console.log(data.get("name"));
+    console.log(data.get("email")); 
+    if (data.get("ccn").length !== 16){
+      alert("Please enter a 16 digit CCN");
+      return;
+    } else if (data.get("zip").length !== 5){
+      alert("Please enter a 5 digit Zip Code");
+      return;
+    }
+    this.setState({formData});
+    this.handleViewChange('Info');
+    
+  };
+
   render() {
     let view;
 
@@ -47,14 +75,13 @@ class App extends React.Component {
 
       view = <React.StrictMode>
         <button onClick={() => this.handleViewChange('Shop')}>Return to List</button>
-        <Cart cartItems={this.state.cartItems} />
-        <button onClick={() => this.handleViewChange('Info')}>Confirm Purchase</button>
+        <Cart cartItems={this.state.cartItems} cartTotal={this.state.cartTotal} onSubmit={this.handleSubmit}/>
         </React.StrictMode>;
     } else if (this.state.currentView === 'Info') {
-      
+
       view = <React.StrictMode>
-      <Info />
-      <button onClick={() => this.handleViewChange('Shop')}>Home Page</button>
+      <Info formData={this.state.formData}/>
+      <button onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()}>Home Page</button>
       </React.StrictMode>;
     }
 
