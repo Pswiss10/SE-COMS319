@@ -70,19 +70,19 @@ class App extends React.Component {
 
       view = <React.StrictMode>
         <Shop addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems} />
-        <button onClick={() => this.handleViewChange('Cart')}>Checkout</button>
+        <button onClick={() => this.handleViewChange('Cart')} class="btn btn-outline-primary">Checkout</button>
         </React.StrictMode>;
     } else if (this.state.currentView === 'Cart') {
 
       view = <React.StrictMode>
-        <button onClick={() => this.handleViewChange('Shop')}>Return to List</button>
+        <button onClick={() => this.handleViewChange('Shop')} class="btn btn-outline-primary">Return to List</button>
         <Cart cartItems={this.state.cartItems} cartTotal={this.state.cartTotal} onSubmit={this.handleSubmit}/>
         </React.StrictMode>;
     } else if (this.state.currentView === 'Info') {
 
       view = <React.StrictMode>
-      <Info formData={this.state.formData}/>
-      <button onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()}>Home Page</button>
+      <Info cartItems={this.state.cartItems} formData={this.state.formData}/>
+      <button onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()} class="btn btn-outline-primary">Home Page</button>
       </React.StrictMode>;
     }
 
