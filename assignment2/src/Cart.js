@@ -89,7 +89,7 @@ const Cart = (props) => {
         <input type="number" name="zip" required />
         </label>
         <br />
-        <button type="submit">Confirm Purchase</button>
+        <button type="submit" class="btn btn-outline-primary">Confirm Purchase</button>
       </form>
     </div>
   );
