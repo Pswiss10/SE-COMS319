@@ -36,7 +36,7 @@ const Shop = (props) => {
 
     const cartItemList = cartItems.map((el) => (
         <div key={el.id}>
-           <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
+           <img class="img-fluid" width={200} src={el.image} alt={el.description}/>
           {el.title} - ${el.price}
         </div>
       ));
@@ -49,7 +49,7 @@ const Shop = (props) => {
             <div class="card mb-3" style={{width: '540px'}}>
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img class="img-fluid" src={el.image} width={150} alt={el.description}/>
+                        <img class="img-fluid" src={el.image} width={200} alt={el.description}/>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
