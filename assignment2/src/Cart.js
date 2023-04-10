@@ -34,7 +34,7 @@ const Cart = (props) => {
   return (
     
     <div>
-      <div>Items in Cart :</div>
+      <div class="h4 bg-primary text-light p-3">Items in Cart</div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -55,42 +55,68 @@ const Cart = (props) => {
         </tfoot>
       </table>
       
-
+      <div class="border p-3 bg-light">
       <form onSubmit={props.onSubmit}>
-        <label>
-          Full Name: <input type="text" name="name" required />
-          
-        </label>
-        <br />
-        <label>
-          Email: <input type="email" name="email" required/>
+        <div class="row g-3 p-3 justify-content-start">
+            <label>
+              Full Name: <br/>
+              <div class="col-3">
+                <input type="text" name="name" class="form-control" required />
+              </div>
+            </label>
+            <label>
+              Email: <br/>
+              <div class="col-3">
+                <input type="email" name="email" class="form-control" required/>
+              </div>
+            </label>
+        </div>
+        <div class="row g-3 p-3 justify-content-start">
+            <label>
+              Card Number: <br/>
+              <div class="col-6">
+                <input type="number" name="ccn" class="form-control" required />
+              </div>
+            </label>
+        </div>
+        <div class="row g-3 p-3 justify-content-start">
+            <label>
+              Address: <br/>
+              <div class="col-6">
+                <input type="text" name="address" class="form-control" required/>
+              </div>
+            </label>
 
-        </label>
-        <br />
-        <label>
-          Card Number: 
-          <input type="number" name="ccn" required />
-        </label>
-        <br />
-        <label>
-          Address: <input type="text" name="address" required/>
-        </label>
-        <br />
-        <label>
-        City: <input type="text" name="city" required/>
-        </label>
-        <br />
-        <label>
-        State: <input type="text" name="state" required /> 
-        </label>
-        <br />
-        <label>
-        Zip Code: 
-        <input type="number" name="zip" required />
-        </label>
-        <br />
+        </div>
+        <div class="row g-3 p-3 justify-content-start">
+          <div class="col-2">
+            <label>
+              City: <br/>
+              <div class="col">
+              <input type="text" name="city" class="form-control" required/>
+              </div>
+            </label>
+          </div>
+          <div class="col-2">
+            <label>
+              State: <br/>
+              <div class="col">
+                <input type="text" name="state" class="form-control" required /> 
+              </div>
+            </label>
+          </div>
+          <div class="col-2">
+            <label>
+              Zip Code: <br/>
+              <div class="col">
+              <input type="number" name="zip" class="form-control" required />
+              </div>
+            </label>
+          </div>
+        </div>
         <button type="submit" class="btn btn-outline-primary">Confirm Purchase</button>
       </form>
+      </div>
     </div>
   );
 };

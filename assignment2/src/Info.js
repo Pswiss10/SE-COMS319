@@ -36,50 +36,54 @@ const Info = (props) => {
   
   return (
     <div>
-      <div>Thank you for your purchase!</div>
-      <div>Order Summary</div>
-      <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Quantity</th>
-          <th scope="col">Item</th>
-          <th scope="col">Name</th>
-          <th scope="col">Price</th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-          {cartItemsList}
-      </tbody>
-      <tfoot class="table-group-divider">
-        <tr>
-          <th scope="col" colSpan="3">Total</th>
-            <td>${totalPrice}</td>
-        </tr>
-      </tfoot>
-    </table>
-    <div>Payment Information</div>
-    <div>
-      <table class="table table-sm table-borderless">
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <td>{formData.get("name")}</td>
-          </tr>
-          <tr>
-            <th>Email</th>
-            <td>{formData.get("email")}</td>
-          </tr>
-          <tr>
-            <th>Card Number</th>
-            <td>{hiddenCCN}</td>
-          </tr>
-          <tr>
-            <th>Billing Address</th>
-            <td>{formData.get("address")}, {formData.get("city")}, {formData.get("state")}, {formData.get("zip")}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div class=" h4 bg-primary text-light p-3">Thank you for your purchase!</div>
+      <div class="p-3">
+        <div class="h5">Order Summary</div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Quantity</th>
+              <th scope="col">Item</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            {cartItemsList}
+          </tbody>
+          <tfoot class="table-group-divider">
+            <tr>
+              <th scope="col" colSpan="3">Total</th>
+                <td>${totalPrice}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="p-3">
+        <div class="h5">Payment Information</div>
+        <div class="bg-light border">
+          <table class="table table-sm table-borderless">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td>{formData.get("name")}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{formData.get("email")}</td>
+              </tr>
+              <tr>
+                <th>Card Number</th>
+                <td>{hiddenCCN}</td>
+              </tr>
+              <tr>
+                <th>Billing Address</th>
+                <td>{formData.get("address")}, {formData.get("city")}, {formData.get("state")}, {formData.get("zip")}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
