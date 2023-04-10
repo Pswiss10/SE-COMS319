@@ -36,7 +36,7 @@ const Shop = (props) => {
 
     const cartItemList = cartItems.map((el) => (
         <div key={el.id}>
-           <img class="img-fluid" src={el.image} width={100} alt={el.description}/>
+           <img class="img-fluid" width={200} src={el.image} alt={el.description}/>
           {el.title} - ${el.price}
         </div>
       ));
@@ -46,20 +46,27 @@ const Shop = (props) => {
       const listItems = filteredItems.map((el) => (
         <div key={el.id} >
 
-            <div class="card" style={{width: '18rem'}}>
-                <img class="img-fluid" src={el.image} width={150} alt={el.description}/>
-                <div class="card-body">
-                    <h5 class="card-title">{el.title}</h5>
-                    <p class="card-text">{el.description}</p>
+            <div class="card mb-3" style={{width: '540px'}}>
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img class="img-fluid" src={el.image} width={200} alt={el.description}/>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{el.title}</h5>
+                            <p class="card-text">{el.description}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Price: ${el.price}</li>
+                            <li class="list-group-item">Category: {el.category}</li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-outline-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
+                            <button type="button" class="btn btn-outline-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
+                        </div>
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Price: ${el.price}</li>
-                    <li class="list-group-item">Category: {el.category}</li>
-                </ul>
-                <div class="card-body">
-                    <button type="button" class="btn btn-outline-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
-                    <button type="button" class="btn btn-outline-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
-                </div>
+
             </div>
         </div>
 
@@ -68,18 +75,17 @@ const Shop = (props) => {
 
         return (
             <div>
-                <nav class="navbar bg-primary" data-bs-theme="dark">
-                    <div class="container-fluid">
-                        <span class="navbar-brand mb-1 h1">Welcome to the underground shoe store  </span>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-                        </form>
-                    </div>
-                </nav>
-                    <div>{listItems}</div>
-
-                <p class="h2">Number of items in Cart : {cartItemList.length} Items</p>
+                    <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
+                        <div class="container-fluid">
+                            <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button></p> 
+                            <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                            </form>
+                        </div>
+                    </nav>
                 
+                    <div>{listItems}</div>
             </div>
             );
 }
