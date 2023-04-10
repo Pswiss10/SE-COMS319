@@ -57,8 +57,8 @@ const Shop = (props) => {
                     <li class="list-group-item">Category: {el.category}</li>
                 </ul>
                 <div class="card-body">
-                    <button type="button" classname="btn btn-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
-                    <button type="button" classname="btn btn-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
+                    <button type="button" class="btn btn-outline-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
+                    <button type="button" class="btn btn-outline-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
                 </div>
             </div>
         </div>
