@@ -67,8 +67,7 @@ class App extends React.Component {
     if (this.state.currentView === 'Shop') {
 
       view = <React.StrictMode>
-        <Shop addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems} />
-        <button onClick={() => this.handleViewChange('Cart')} class="btn btn-outline-primary">Checkout</button>
+        <Shop handleViewChange={this.handleViewChange} addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems} />
         </React.StrictMode>;
     } else if (this.state.currentView === 'Cart') {
 
