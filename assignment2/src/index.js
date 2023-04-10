@@ -14,7 +14,8 @@ class App extends React.Component {
       cartTotal: 0,
       cartItems:[],
       FormData: {},
-      cartItemsWQuant: [],
+      itemQuantities: [],
+      uniqueItems: [],
     };
     this.handleViewChange = this.handleViewChange.bind(this);
     this.addToCart = this.addToCart.bind(this);
