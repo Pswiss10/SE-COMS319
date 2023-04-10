@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Info = (props) => {
 
-
-
-
+  const cartItems = props.cartItems;
+  const formData = new FormData(props.formData.target);
+  let hiddenCCN = "XXXX-XXXX-XXXX-" + formData.get("ccn").substr(12, 4);
     // rest of the component code
     let uniqueItems = [];
     let itemQuantities = [0, 0, 0, 0, 0, 0];
@@ -36,7 +36,8 @@ const Info = (props) => {
   
   return (
     <div>
-      <div>Thank you for your purchase of the following items!</div>
+      <div>Thank you for your purchase!</div>
+      <div>Order Summary</div>
       <table class="table table-striped">
       <thead>
         <tr>
@@ -56,7 +57,30 @@ const Info = (props) => {
         </tr>
       </tfoot>
     </table>
-  </div>
+    <div>Payment Information</div>
+    <div>
+      <table class="table table-sm table-borderless">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{formData.get("name")}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{formData.get("email")}</td>
+          </tr>
+          <tr>
+            <th>Card Number</th>
+            <td>{hiddenCCN}</td>
+          </tr>
+          <tr>
+            <th>Billing Address</th>
+            <td>{formData.get("address")}, {formData.get("city")}, {formData.get("state")}, {formData.get("zip")}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
   );
 };
 
