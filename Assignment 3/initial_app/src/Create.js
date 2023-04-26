@@ -8,7 +8,7 @@ const Create = (props) => {
 return (
 
     <div>
-
+        <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
 
     </div>
 
