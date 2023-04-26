@@ -14,12 +14,26 @@ class App extends React.Component {
       currentView: 'Main'
     };
     this.handleViewChange = this.handleViewChange.bind(this);
+    this.handleCreateSubmit = this.handleCreateSubmit(this);
   }
 
   handleViewChange(view) {
       this.setState({ currentView: view });
   }
 
+  handleCreateSubmit(event) {
+    event.preventDefault();
+    fetch('/data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: this.state.name })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+  }
 
 render() {
   let view;
@@ -27,7 +41,7 @@ render() {
   if (this.state.currentView === 'Main') {
 
     view = <React.StrictMode>
-      <Main handleViewChange={this.handleViewChange}/>
+      <Main handleViewChange={this.handleViewChange} handleCreateSubmit={this.handleCreateSubmit}/>
     </React.StrictMode>;
 
   } else if (this.state.currentView === 'Create') {
@@ -53,7 +67,7 @@ render() {
     view = <React.StrictMode>
       <Delete handleViewChange={this.handleViewChange}/>
     </React.StrictMode>;
-    
+
   }
 
   return (<div>{view}</div>);
