@@ -6,7 +6,7 @@ const Read = (props) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch('/all')
+      fetch('http://localhost:4000/')
         .then(response => response.json())
         .then(data => setItems(data))
         .catch(error => console.error(error));
