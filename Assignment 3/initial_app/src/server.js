@@ -1,30 +1,63 @@
-const express = require('express');
-const mongoose = require('mongoose');
+var express = require("express");
+var cors = require("cors");
+const { MongoClient } = require("mongodb");
 
-const app = express();
-const port = 3000;
+var app = express();
+var fs = require("fs");
+var bodyParser = require("body-parser");
 
-// Set up middleware for parsing JSON and URL-encoded data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost/myapp', { useNewUrlParser: true });
+const port = "8081";
+const host = "localhost";
 
-// Define a schema and model for your data
-const MyModel = mongoose.model('MyModel', { name: String });
+// Mongo
+const url = "mongodb://127.0.0.1:27017";
+const dbName = "reactdata";
+const client = new MongoClient(url);
+const db = client.db(dbName);
 
-// Define a route for handling POST requests
-app.post('/data', (req, res) => {
-  const myData = new MyModel({ name: req.body.name });
-  myData.save().then(() => {
-    res.send('Data saved successfully');
-  }).catch((error) => {
-    res.status(500).send(error);
-  });
-});
-
-// Start the server
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+console.log("App listening at http://%s:%s", host, port);
 });
+
+app.get("/listUsers", async (req, res) => {
+  await client.connect();
+  console.log("Node connected successfully to GET MongoDB");
+  const query = {};
+  const results = await db
+  .collection("fakestore_catalog")
+  .find(query)
+  .limit(100)
+  .toArray();
+  console.log(results);
+  res.status(200);
+  res.send(results);
+});
+
+app.post("/addUser", async (req, res) => {
+    await client.connect();
+    const keys = Object.keys(req.body);
+    const values = Object.values(req.body);
+    const k = keys[0];
+    const v = values[0];
+    console.log("Keys :", k, " Values", v);
+    const newDocument = { _id: "600", [k]: [v] };
+    const results = await db.collection("fakestore_catalog").insertOne(newDocument);
+    res.status(200);
+    res.send(results);
+});
+
+app.delete("/deleteUser", async (req, res) => {
+  await client.connect();
+  const keys = Object.keys(req.body);
+  const k = keys[0];
+  const query = { [k]: { $exists: true } };
+  const results = await db.collection("fakestore_catalog").deleteOne(query);
+  res.status(200);
+  res.send(results);
+});
+
+
+    
