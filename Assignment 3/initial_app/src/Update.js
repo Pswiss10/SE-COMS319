@@ -13,7 +13,7 @@ const Update = (props) => {
     };
   
     const handleGetItem = () => {
-      fetch(`/data/${itemId}`)
+      fetch(`http://localhost:4000/insert/${itemId}`)
         .then(response => response.json())
         .then(data => {
           setItem(data);
@@ -27,7 +27,7 @@ const Update = (props) => {
     };
   
     const handleUpdatePrice = () => {
-      fetch(`/data/${itemId}`, {
+      fetch(`http://localhost:4000/insert/${itemId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
