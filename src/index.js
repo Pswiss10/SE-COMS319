@@ -4,13 +4,16 @@ import ReactDOM from 'react-dom/client';
 import Shop from "./Shop.js";
 import Cart from "./Cart.js";
 import Info from "./Info.js";
+import Featured from './Featured.js';
+import PlayerLines from './PlayerLines.js';
+import Student from './Student.js';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 'Shop',
+      currentView: 'Featured',
       cartTotal: 0,
       cartItems:[],
       FormData: {},
@@ -92,6 +95,26 @@ class App extends React.Component {
       </div>
       </React.StrictMode>;
     }
+    else if(this.state.currentView === 'Featured') {
+
+      view = <React.StrictMode>
+        <Featured  handleViewChange={this.handleViewChange} addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems}/>
+      </React.StrictMode>
+    }
+    else if(this.state.currentView === 'PlayerLines') {
+
+      view = <React.StrictMode>
+        <PlayerLines  handleViewChange={this.handleViewChange} addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems}/>
+      </React.StrictMode>
+    }
+    else if(this.state.currentView === 'Student') {
+
+      view = <React.StrictMode>
+        <Student  handleViewChange={this.handleViewChange}/>
+      </React.StrictMode>
+    }
+
+
 
     return (<div>{view}</div>);
   }

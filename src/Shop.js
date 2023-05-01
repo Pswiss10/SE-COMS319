@@ -75,17 +75,17 @@ const Shop = (props) => {
 
         return (
             <div>
-                    <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
-                        <div class="container-fluid">
-                            <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button></p> 
-                            <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-                            </form>
-                        </div>
-                    </nav>
-                
-                    <div>{listItems}</div>
+                <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Featured')} class="btn btn-secondary">Featured Shoes</button> <button onClick={() => props.handleViewChange('PlayerLines')} class="btn btn-secondary">Player Lines</button> <button onClick={() => props.handleViewChange('Student')} class="btn btn-secondary">Student Info</button> </p> 
+                        <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                        </form>
+                    </div>
+                </nav>
+            
+                <div>{listItems}</div>
             </div>
             );
 }
