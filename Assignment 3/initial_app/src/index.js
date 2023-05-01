@@ -14,7 +14,6 @@ class App extends React.Component {
       currentView: 'Main'
     };
     this.handleViewChange = this.handleViewChange.bind(this);
-    this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
   }
 
   handleViewChange(view) {
