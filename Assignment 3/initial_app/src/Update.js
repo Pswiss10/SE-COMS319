@@ -73,12 +73,15 @@ const Update = (props) => {
       <div>
         <div>
           <h3>Delete one product:</h3>
-          <input type="checkbox" id="acceptdelete" name="acceptdelete" checked={checked4}
+          <div>
+          <input type="checkbox" class="form-check-input" id="acceptdelete" name="acceptdelete" checked={checked4}
           onChange={(e) => setChecked4(!checked4)} />
-          <button onClick={() => getOneByOneProductPrev()}>Prev</button>
-          <button onClick={() => getOneByOneProductNext()}>Next</button>
+
+          <button class="btn btn-primary" onClick={() => getOneByOneProductPrev()}>Prev</button>
+          <button class="btn btn-primary" onClick={() => getOneByOneProductNext()}>Next</button>
           New Price: <input type="number" placeholder="$xx.xx" name="price" onChange={handleChange}></input>
-          <button onClick={() => updateOneProduct(product[index].id)}>Update</button>
+          <button class="btn btn-primary" onClick={() => updateOneProduct(product[index].id)}>Update</button>
+          </div>
           {checked4 && (
           <div key={product[index]._id}>
           <img src={product[index].image} width={30} alt="yes"/> <br />
@@ -91,13 +94,14 @@ const Update = (props) => {
           </div>
           )}
         </div>
-        <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+        <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
   
+      
     </div>
   
   )
   
   
-  
+            
   }
 export default Update;

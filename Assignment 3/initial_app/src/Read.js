@@ -34,14 +34,16 @@ const Read = (props) => {
 
 return (
     <div>
-    <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
-    <h1>Catalog of Products</h1>
-    <button onClick={() => getAllProducts()}>Show All products</button>
-    <h1>Show all available Products.</h1>
-    <hr></hr>
-    {<div>Products <br/>{showAllItems}</div>}
-    <hr></hr>
-    <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+        <div class="p-3">
+        <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+        <h1>Catalog of Products</h1>
+        <button class="btn btn-primary btn-lg" onClick={() => getAllProducts()}>Show All products</button>
+        <h1>Show all available Products.</h1>
+        <hr></hr>
+        {<div>Products <br/>{showAllItems}</div>}
+        <hr></hr>
+        <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+        </div>
     </div>
     );
 

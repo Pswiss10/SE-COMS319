@@ -59,13 +59,17 @@ const Delete = (props) => {
 
   return (
     <div>
-      <div>
+      <div class="p-3">
         <h3>Delete one product:</h3>
-        <input type="checkbox" id="acceptdelete" name="acceptdelete" checked={checked4}
-        onChange={(e) => setChecked4(!checked4)} />
-        <button onClick={() => getOneByOneProductPrev()}>Prev</button>
-        <button onClick={() => getOneByOneProductNext()}>Next</button>
-        <button onClick={() => deleteOneProduct(product[index]._id)}>Delete</button>
+        <div>
+          <input type="checkbox" class="form-check-input" id="acceptdelete" name="acceptdelete" checked={checked4}onChange={(e) => setChecked4(!checked4)} />
+        </div>
+        <div>
+          <button class="btn btn-primary" onClick={() => getOneByOneProductPrev()}>Prev</button>
+          <button class="btn btn-primary" onClick={() => getOneByOneProductNext()}>Next</button>
+          <button class="btn btn-primary"onClick={() => deleteOneProduct(product[index]._id)}>Delete</button>
+        </div>
+
         {checked4 && (
         <div key={product[index]._id}>
         <img src={product[index].image} width={30} alt="yes"/> <br />
@@ -78,7 +82,10 @@ const Delete = (props) => {
         </div>
         )}
       </div>
-      <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+      <div class="p-3">
+      <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+      </div>
+      
 
   </div>
 
