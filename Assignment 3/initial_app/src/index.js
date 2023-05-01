@@ -6,6 +6,7 @@ import Create from "./Create.js"
 import Read from "./Read.js"
 import Update from "./Update.js"
 import Delete from "./Delete.js"
+import Student from "./Student.js"
 
 class App extends React.Component {
   constructor(props) {
@@ -52,6 +53,13 @@ render() {
 
     view = <React.StrictMode>
       <Delete handleViewChange={this.handleViewChange}/>
+    </React.StrictMode>;
+
+  }
+  else if (this.state.currentView === 'Student') {
+
+    view = <React.StrictMode>
+      <Student handleViewChange={this.handleViewChange}/>
     </React.StrictMode>;
 
   }
