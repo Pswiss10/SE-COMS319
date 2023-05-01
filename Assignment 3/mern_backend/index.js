@@ -93,7 +93,7 @@ app.delete("/delete", async (req, res) => {
     }
 });
 
-app.update("/update", async (req, res) => {
+app.put("/update", async (req, res) => {
     console.log("Update :", req.body);
     try {
     const query = { _id: req.body._id, price: req.body.price };
