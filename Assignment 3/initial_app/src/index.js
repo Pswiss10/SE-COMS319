@@ -21,18 +21,6 @@ class App extends React.Component {
       this.setState({ currentView: view });
   }
 
-  handleCreateSubmit(formData) {
-    fetch('/insert', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-  }
 
 render() {
   let view;
@@ -46,7 +34,7 @@ render() {
   } else if (this.state.currentView === 'Create') {
 
     view = <React.StrictMode>
-      <Create handleViewChange={this.handleViewChange} handleCreateSubmit={this.handleCreateSubmit}/>
+      <Create handleViewChange={this.handleViewChange}/>
     </React.StrictMode>;
 
   } else if (this.state.currentView === 'Read') {
