@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 
 const Update = (props) => {
 
-    const [thisPrice, setPrice] = useState('');
+    const [thisPrice, setPrice] = useState(0);
     const [checked4, setChecked4] = useState(false);
     const [index, setIndex] = useState(0);
     const [product, setProduct] = useState([]);
   
-    
+ 
     useEffect(() => {
       getAllProducts();
       }, [checked4]);
@@ -25,7 +25,9 @@ const Update = (props) => {
     }
     
     function handleChange(evt){
-      setPrice({...thisPrice, price: evt});
+      setPrice(evt.target.value);
+      console.log(evt);
+      console.log(evt.target.value);
     }
 
     function getOneByOneProductNext() {
@@ -43,16 +45,20 @@ const Update = (props) => {
       }
       }
   
-    function updateOneProduct(deleteid,) {
-      console.log("Product to delete :", deleteid);
+    function updateOneProduct(updateid) {
+      console.log("Current id : ", product[index].id, "and index", index, "and price: ", thisPrice)
+      console.log("Product to update :", updateid);
       fetch("http://localhost:4000/update/", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ _id: deleteid, price: thisPrice }),
+      body: JSON.stringify({
+        _id: Number(updateid), 
+        price: Number(thisPrice)
+       }),
       })
       .then((response) => response.json())
       .then((data) => {
-      console.log("Delete a product completed : ", deleteid);
+      console.log("Update completed : ", updateid);
       console.log(data);
       if (data) {
       //const keys = Object.keys(data);
@@ -72,11 +78,11 @@ const Update = (props) => {
           <button onClick={() => getOneByOneProductPrev()}>Prev</button>
           <button onClick={() => getOneByOneProductNext()}>Next</button>
           New Price: <input type="number" placeholder="$xx.xx" name="price" onChange={handleChange}></input>
-          <button onClick={() => updateOneProduct(product[index]._id)}>Delete</button>
+          <button onClick={() => updateOneProduct(product[index].id)}>Update</button>
           {checked4 && (
           <div key={product[index]._id}>
           <img src={product[index].image} width={30} alt="yes"/> <br />
-          Id:{product[index]._id} <br />
+          Id:{product[index].id} <br />
           Title: {product[index].title} <br />
           Category: {product[index].category} <br />
           Price: {product[index].price} <br />
