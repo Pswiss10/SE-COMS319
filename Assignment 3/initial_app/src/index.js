@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
   handleCreateSubmit(formData) {
-    fetch('/data', {
+    fetch('/insert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

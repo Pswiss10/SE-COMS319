@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const Product = require("./dataSchema.js");
+//const { MongoClient } = require("mongodb");
 
 app.use(express.json());
 app.use(cors());
@@ -19,19 +20,28 @@ useUnifiedTopology: true,
 
 const port = process.env.PORT || 4000;
 const host = "localhost";
+//const client = new MongoClient(url);
+//const db = client.db(dbName);
 app.listen(port, () => {
 console.log(`App listening at http://%s:%s`, host, port);
 });
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 app.get("/", async (req, resp) => {
+
+    //await client.connect();
+    console.log("hello from get all method");
     const query = {};
     const allProducts = await Product.find(query);
+    console.log("Hello");
     console.log(allProducts);
     resp.send(allProducts);
 });
     
 app.get("/:id", async (req, resp) => {
-    const id = req.params.id;
+    console.log("hello from get 1 method");
+    const id = Number(req.params.id);
     const query = { _id: id };
     const oneProduct = await Product.findOne(query);
     console.log(oneProduct);
@@ -79,6 +89,6 @@ app.delete("/delete", async (req, res) => {
     };
     res.send(JSON.stringify(messageResponse));
     } catch (err) {
-    console.log("Error while deleting :" + p_id + " " + err);
+    console.log("Error while deleting :" + req.body._id + " " + err);
     }
 });

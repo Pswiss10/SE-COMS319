@@ -19,12 +19,12 @@ return (
         <h1>Items in the Database</h1>
         {items.map(item => (
             <div key={item._id}>
-            <h3>{item.Title}</h3>
-            <p>Price: {item.Price}</p>
-            <p>Description: {item.Description}</p>
-            <p>Category: {item.Category}</p>
+            <h3>{item.title}</h3>
+            <p>Price: {item.price}</p>
+            <p>Description: {item.description}</p>
+            <p>Category: {item.category}</p>
             <img src={item.image} alt={item.Title} />
-            <p>Rating: {item.Rating.Stars} Stars ({item.Rating.Count} reviews)</p>
+            <p>Rating: {item.rating.rate} Stars ({item.rating.count} reviews)</p>
             </div>
         ))}
         </div>
