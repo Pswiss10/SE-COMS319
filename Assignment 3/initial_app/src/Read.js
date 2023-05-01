@@ -28,7 +28,7 @@ const Read = (props) => {
         Title: {el.title} <br />
         Category: {el.category} <br />
         Price: {el.price} <br />
-        Rate :{el.rating.rate} and Count:{el.rating.count} <br />
+        Rate : {el.rating.rate} Stars and Count : {el.rating.count} <br />
         </div>
         ));
 
