@@ -92,3 +92,21 @@ app.delete("/delete", async (req, res) => {
     console.log("Error while deleting :" + req.body._id + " " + err);
     }
 });
+
+app.update("/update", async (req, res) => {
+    console.log("Update :", req.body);
+    try {
+    const query = { _id: req.body._id, price: req.body.price };
+    await Product.updateOne({_id: query._id},{price: query.price},
+        function(err, result) {
+            console.log("Items updated: " + 
+               result.modifiedCount);
+    });
+    const messageResponse = {
+    message: `Product ${req.body._id} updated correctly`,
+    };
+    res.send(JSON.stringify(messageResponse));
+    } catch (err) {
+    console.log("Error while updating :" + req.body._id + " " + err);
+    }
+});
