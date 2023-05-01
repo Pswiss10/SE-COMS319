@@ -16,7 +16,7 @@ const Create = (props) => {
     
     function handleChange(evt) {
       const value = evt.target.value;
-      if (evt.target.name == "_id") {
+      if (evt.target.name === "_id") {
         setAddNewProduct({ ...addNewProduct, _id: value });
       } else if (evt.target.name === "title") {
         setAddNewProduct({ ...addNewProduct, title: value });
