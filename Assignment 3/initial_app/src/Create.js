@@ -64,23 +64,22 @@ const Create = (props) => {
 return (
 
 <div>
-<h3>Add a new product :</h3>
-<form action="">
-    <input type="number" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} />
-    <input type="text" placeholder="title?" name="title" value={addNewProduct.title} onChange={handleChange} />
-    <input type="number" placeholder="price?" name="price" value={addNewProduct.price} onChange={handleChange} />
-    <input type="text" placeholder="description?" name="description" value={addNewProduct.description} onChange={handleChange} />
-    <input type="text" placeholder="category?" name="category" value={addNewProduct.category} onChange={handleChange} />
-    <input type="text" placeholder="image?" name="image" value={addNewProduct.image} onChange={handleChange} />
-    <input type="number" placeholder="rate?" name="rate" value={addNewProduct.rating.rate} onChange={handleChange} />
-    <input type="number" placeholder="count?" name="count" value={addNewProduct.rating.count} onChange={handleChange} />
-    <button type="submit" onClick={handleOnSubmit}>
-    submit
-    </button>
+  <div class="p-3">
+    <h3>Add a new product :</h3>
+    <form action="">
+      <input type="number" class="form-control" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="title?" name="title" value={addNewProduct.title} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="price?" name="price" value={addNewProduct.price} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="description?" name="description" value={addNewProduct.description} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="category?" name="category" value={addNewProduct.category} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="image?" name="image" value={addNewProduct.image} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="rate?" name="rate" value={addNewProduct.rating.rate} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="count?" name="count" value={addNewProduct.rating.count} onChange={handleChange} /><br/>
+      <button type="submit" class="btn btn-primary btn-lg" onClick={handleOnSubmit}>submit</button>
     </form>
+    <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+  </div>
 
-
-    <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
 
     </div>
 

@@ -58,7 +58,7 @@ const Update = (props) => {
           </div>
         }
       </div>
-            <button type="button" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+            <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
         </div>
 
 )

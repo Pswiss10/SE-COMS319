@@ -8,11 +8,17 @@ const Main = (props) => {
     return (
 
         <div>
-            <button type="button" onClick={() => props.handleViewChange('Create')}>Create New</button> <br/>
-            <button type="button" onClick={() => props.handleViewChange('Read')}>Read All</button> <br/>
-            <button id="Update" type="button" onClick={() => props.handleViewChange('Update')}>Update ID</button> <br/>
-            
-            <button id="Delete" type="button" onClick={() => props.handleViewChange('Delete')}>Delete ID</button> <br/>
+            <div class="p-3 text-bg-primary">The Best Fits</div>
+            <div>
+                <p>Catalog</p>
+            </div>
+            <div class="p-3">
+                <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Create')}>Create New</button> <br/>
+                <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Read')}>Read All</button> <br/>
+                <button id="Update" class="btn btn-primary btn-lg" type="button" onClick={() => props.handleViewChange('Update')}>Update ID</button> <br/>
+                <button id="Delete" class="btn btn-primary btn-lg" type="button" onClick={() => props.handleViewChange('Delete')}>Delete ID</button> <br/>
+            </div>
+
             
         </div>
 
