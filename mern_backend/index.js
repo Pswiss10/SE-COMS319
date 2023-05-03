@@ -63,12 +63,18 @@ app.get("/:id", async (req, resp) => {
 app.post("/insert/", async (req, res) => {
     console.log(req.body);
     const p_id = req.body._id;
-    const ptitle = req.body.title;
+    const ptitle = req.body.playerTitle;
     const pprice = req.body.price;
-    const pdescription = req.body.description;
-    const pimage = req.body.image;
+    const pdescription = req.body.playerDescription;
+    const pimage = req.body.playerImage;
     const prate = req.body.rating.rate;
     const pcount = req.body.rating.count;
+    const pposition = req.body.position;
+    const pteam = req.body.team;
+    const pshoeTitle = req.body.shoeTitle;
+    const pshoeImage = req.body.shoeImage;
+    const pfeatured = req.body.featured;
+
 
     const playerData = new Product({
         _id: p_id,
@@ -91,7 +97,7 @@ app.post("/insert/", async (req, res) => {
 
     try {
         // await formData.save();
-        await Product.create(formData);
+        await Product.create(playerData);
         const messageResponse = { message: `Product ${p_id} added correctly` };
         res.send(JSON.stringify(messageResponse));
     } catch (err) {
@@ -149,10 +155,15 @@ app.put("/update/", async (req, res) => {
     }
 });
 
-app.get("/featured", async (req, resp) => {
+app.get("/featured/", async (req, resp) => {
     //await client.connect();
-    console.log("hello from get featured method");
-    const query = {featured: 1};
-    const featuredProducts = await Product.find(query);
-    resp.json(featuredProducts);
+    try{
+        console.log("hello from get featured method");
+        const query = {featured: 1};
+        const featuredProducts = await Product.find(query);
+        resp.json(featuredProducts);
+    } catch (error){
+        console.log(error);
+        alert(error);
+    }
 });

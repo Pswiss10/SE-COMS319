@@ -15,6 +15,8 @@ return (
         <p>Date: 4/30/23</p>
         <p>We deveopled a MERN application using react, node.js, and mondodb, express. This app simulates a catolog of clothing</p>
         <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Featured')}>Return to Featured Shoes</button> <br/>
+        <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Create')}>Create new shoes</button> <br/>
+        <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Delete')}>Delete Shoes</button> <br/>
         
     </div>
     );

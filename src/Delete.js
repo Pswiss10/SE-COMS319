@@ -72,18 +72,17 @@ const Delete = (props) => {
 
         {checked4 && (
         <div key={product[index]._id}>
-        <img src={product[index].image} width={30} alt="yes"/> <br />
-        Id:{product[index]._id} <br />
-        Title: {product[index].title} <br />
-        Category: {product[index].category} <br />
+        <img src={product[index].shoeImage} width={30} alt="yes"/> <br />
+        Id:{product[index].id} <br />
+        Title: {product[index].shoeTitle} <br />
+        Stock: {product[index].count} <br />
         Price: {product[index].price} <br />
-        Rate :{product[index].rating.rate} and Count:
-        {product[index].rating.count} <br />
+        Rate :{product[index].rating.rate} and Count: {product[index].rating.count} <br />
         </div>
         )}
       </div>
       <div class="p-3">
-      <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+      <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Main</button> <br/>
       </div>
       
 

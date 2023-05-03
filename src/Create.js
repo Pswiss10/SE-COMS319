@@ -5,13 +5,18 @@ import React, { useState, useEffect } from "react";
 const Create = (props) => {
 
   const [addNewProduct, setAddNewProduct] = useState({
-    _id: 0,
-    title: "",
-    price: 0.0,
-    description: "",
-    category: "",
-    image: "http://127.0.0.1:4000/images/",
-    rating: { rate: 0.0, count: 0 },
+        _id: '',
+        playerTitle: "",
+        playerDescription: "",
+        position: "",
+        team: "",
+        playerImage: "http://127.0.0.1:4000/images/Players/",
+        shoeTitle: "",
+        price: '',
+        shoeImage: "http://127.0.0.1:4000/images/Shoes/",
+        rating: { "rate": '', "count": '' },
+        count: '',
+        featured: ''
     });
     
     function handleChange(evt) {
@@ -78,18 +83,18 @@ return (
     <h3>Add a new product :</h3>
     <form action="">
       <input type="number" class="form-control" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="title?" name="title" value={addNewProduct.shoeTitle} onChange={handleChange} /><br/>
-      <input type="number" class="form-control" placeholder="price?" name="price" value={addNewProduct.price} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="player description?" name="description" value={addNewProduct.playerDescription} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="count?" name="amount" value={addNewProduct.count} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="image?" name="image" value={addNewProduct.shoeImage} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="player image?" name="playerImage" value={addNewProduct.playerImage} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="player team?" name="team" value={addNewProduct.team} onChange={handleChange} /><br/>
-      <input type="number" class="form-control" placeholder="rate?" name="rate" value={addNewProduct.rating.rate} onChange={handleChange} /><br/>
-      <input type="number" class="form-control" placeholder="count?" name="count" value={addNewProduct.rating.count} onChange={handleChange} /><br/>
-      <input type="number" class="form-control" placeholder="is it featured?" name="featured" value={addNewProduct.featured} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="player name?" name="playerName" value={addNewProduct.playerTitle} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="player position?" name="position" value={addNewProduct.position} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Shoe name?" name="title" value={addNewProduct.shoeTitle} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="Price?" name="price" value={addNewProduct.price} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Player description?" name="description" value={addNewProduct.playerDescription} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Total stock?" name="amount" value={addNewProduct.count} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Shoe image?" name="image" value={addNewProduct.shoeImage} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Player image?" name="playerImage" value={addNewProduct.playerImage} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Player team?" name="team" value={addNewProduct.team} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="Rating?" name="rate" value={addNewProduct.rating.rate} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="Number of reviews?" name="count" value={addNewProduct.rating.count} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="Is it featured?" name="featured" value={addNewProduct.featured} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Player name?" name="playerName" value={addNewProduct.playerTitle} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="Player position?" name="position" value={addNewProduct.position} onChange={handleChange} /><br/>
       <button type="submit" class="btn btn-primary btn-lg" onClick={handleOnSubmit}>submit</button>
     </form>
     <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Main</button> <br/>

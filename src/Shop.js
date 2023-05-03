@@ -15,11 +15,11 @@ const Shop = (props) => {
         fetch("http://localhost:4000/")
         .then((response) => response.json())
         .then((data) => {
-        console.log("Show Catalog of Products :");
-        console.log(data);
+      //  console.log("Show Catalog of Products :");
+       // console.log(data);
         setItems(data);
         });
-    });
+    }, []);
 
     const cartItemList = cartItems.map((el) => (
         <div key={el._id}>
@@ -45,7 +45,7 @@ const Shop = (props) => {
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Price: ${el.price}</li>
-                            <li class="list-group-item">Amount in stock: {el.count} itemes</li>
+                            <li class="list-group-item">Amount in stock: {el.count} items</li>
                         </ul>
                         <div class="card-body">
                             <button type="button" class="btn btn-outline-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}

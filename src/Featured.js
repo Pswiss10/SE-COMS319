@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import items from "./selected_products.json";
+//import items from "./selected_products.json";
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -18,7 +18,7 @@ const Featured = (props) => {
        console.log("Show Catalog of Products :");
        console.log(data);
        setItems(data);
-       });
+       }, []);
    });
 
    const cartItemList = cartItems.map((el) => (
@@ -39,7 +39,9 @@ const Featured = (props) => {
                        <img class="img-fluid" src={el.playerImage} width={200} alt={el.playerDescription}/>
                    </div>
                    <div>
-                        <p>{el.playerDescription}</p>
+                        <p>Player's team: {el.team}</p>
+                        <p>Player's Position: {el.position}</p>
+                        <p>Player Description: {el.playerDescription}</p>
                    </div>
                    <div class="col-md-8">
                         <div class="col-md-4">
@@ -70,7 +72,7 @@ const Featured = (props) => {
            <div>
                <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
                    <div class="container-fluid">
-                       <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Featured')} class="btn btn-secondary">Featured Shoes</button> <button onClick={() => props.handleViewChange('Student')} class="btn btn-secondary">Student Info</button> </p> 
+                       <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Shop')} class="btn btn-secondary">All Shoes</button> <button onClick={() => props.handleViewChange('Student')} class="btn btn-secondary">Student Info</button> </p> 
                        <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
                        <form class="d-flex" role="search">
                            <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
@@ -79,23 +81,6 @@ const Featured = (props) => {
                </nav>
            
                <div>{listItems}</div>
-           </div>
-           );
-
-
-       return (
-           <div>
-                   <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
-                       <div class="container-fluid">
-                           <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Shop')} class="btn btn-secondary">All Shoes</button> <button onClick={() => props.handleViewChange('Student')} class="btn btn-secondary">Student Info</button></p> 
-                           <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
-                           <form class="d-flex" role="search">
-                               <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-                           </form>
-                       </div>
-                   </nav>
-               
-                   <div>{listItems}</div>
            </div>
            );
 };

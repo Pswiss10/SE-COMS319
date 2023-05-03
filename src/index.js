@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 'Featured',
+      currentView: 'Shop',
       cartTotal: 0,
       cartItems:[],
       FormData: {},
