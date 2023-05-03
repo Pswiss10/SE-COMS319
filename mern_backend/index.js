@@ -35,33 +35,43 @@ console.log(`App listening at http://%s:%s`, host, port);
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
-// Get all shoes
-
+// Get all shoes that are in stock
 app.get("/", async (req, resp) => {
 
     //await client.connect();
     console.log("hello from get all method");
 
-    // Finding all the shoes with an empty query will get every shoe
-
-    const query = {};
+    // Finding all the shoes that satisfy the query
+    const query = {count: pcount >= 1};
     const allProducts = await Product.find(query);
+
    // console.log("Hello");
     //console.log(allProducts);
     resp.json(allProducts);
 });
     
+// Get a shoe by id
 app.get("/:id", async (req, resp) => {
     console.log("hello from get 1 method");
+
+    // Set id equal to the id in the request
     const id = Number(req.params.id);
+
+
+    // Find one shoe that satisfies the query
     const query = { _id: id };
     const oneProduct = await Product.findOne(query);
     console.log(oneProduct);
     resp.send(oneProduct);
 });
 
+// Add a new shoe to the database
+
 app.post("/insert/", async (req, res) => {
     console.log(req.body);
+
+
+    // Initialize fields from request data
     const p_id = req.body._id;
     const ptitle = req.body.title;
     const pprice = req.body.price;
@@ -70,7 +80,8 @@ app.post("/insert/", async (req, res) => {
     const prate = req.body.rating.rate;
     const pcount = req.body.rating.count;
 
-    const playerData = new Product({
+    // Construct a shoe object from the fields above
+    const formData = new Product({
         _id: p_id,
         playerTitle: ptitle,
         playerDescription: pdescription,
@@ -89,6 +100,7 @@ app.post("/insert/", async (req, res) => {
         featured: pfeatured
     });
 
+    // Try to add the new shoe to the database
     try {
         // await formData.save();
         await Product.create(formData);
@@ -99,8 +111,12 @@ app.post("/insert/", async (req, res) => {
     }
 });
 
+
+// Remove a shoe from the database
 app.delete("/delete/", async (req, res) => {
     console.log("Delete :", req.body);
+
+    // Try to find and delete a shoe based on the query
     try {
     const query = { _id: req.body._id };
     await Product.deleteOne(query);
@@ -128,10 +144,13 @@ app.delete("/delete/", async (req, res) => {
 //     }
 // });
 
+// Modify a shoe in the database by decreasing the number in stock (count)
 app.put("/update/", async (req, res) => {
     const pcount = req.body.count;
     const p_id = req.body._id;
     console.log("Put :", req.body);
+
+    // Try to find and modify the shoe in the database
     try {
         console.log("entered try");
         const query = { _id: p_id };
