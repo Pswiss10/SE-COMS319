@@ -1,3 +1,5 @@
+// Initialize dependencies
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 app.use("/images", express.static("images"));
+
+// Connect to the database
 
 mongoose.connect("mongodb://127.0.0.1:27017/reactdata",
 {
@@ -22,16 +26,24 @@ const port = process.env.PORT || 4000;
 const host = "localhost";
 //const client = new MongoClient(url);
 //const db = client.db(dbName);
+
+// Begin listening for requests and responses
+
 app.listen(port, () => {
 console.log(`App listening at http://%s:%s`, host, port);
 });
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
+// Get all shoes
+
 app.get("/", async (req, resp) => {
 
     //await client.connect();
     console.log("hello from get all method");
+
+    // Finding all the shoes with an empty query will get every shoe
+
     const query = {};
     const allProducts = await Product.find(query);
    // console.log("Hello");
@@ -48,25 +60,33 @@ app.get("/:id", async (req, resp) => {
     resp.send(oneProduct);
 });
 
-app.post("/insert", async (req, res) => {
+app.post("/insert/", async (req, res) => {
     console.log(req.body);
     const p_id = req.body._id;
     const ptitle = req.body.title;
     const pprice = req.body.price;
     const pdescription = req.body.description;
-    const pcategory = req.body.category;
     const pimage = req.body.image;
     const prate = req.body.rating.rate;
     const pcount = req.body.rating.count;
-    
-    const formData = new Product({
+
+    const playerData = new Product({
         _id: p_id,
-        title: ptitle,
+        playerTitle: ptitle,
+        playerDescription: pdescription,
+        position: pposition,
+        team: pteam,
+        playerImage: pimage,
+        shoeTitle: pshoeTitle,
         price: pprice,
-        description: pdescription,
-        category: pcategory,
-        image: pimage,
-        rating: { rate: prate, count: pcount },
+        shoeImage: pshoeImage,
+        rating: 
+        { 
+            rate: prate, 
+            count: pcount 
+        },
+        count: pcount,
+        featured: pfeatured
     });
 
     try {
@@ -79,7 +99,7 @@ app.post("/insert", async (req, res) => {
     }
 });
 
-app.delete("/delete", async (req, res) => {
+app.delete("/delete/", async (req, res) => {
     console.log("Delete :", req.body);
     try {
     const query = { _id: req.body._id };
@@ -109,17 +129,17 @@ app.delete("/delete", async (req, res) => {
 // });
 
 app.put("/update/", async (req, res) => {
-    const pprice = req.body.price;
+    const pcount = req.body.count;
     const p_id = req.body._id;
     console.log("Put :", req.body);
     try {
         console.log("entered try");
         const query = { _id: p_id };
         console.log("id: ", query);
-        const update = { price: pprice };
-        console.log("update : ", update);
-        const options = { new: true };
-        const updatedProduct = await Product.findOneAndUpdate({id:p_id}, {$set:{price: pprice}}, {new:true});
+        //const update = { price: pprice };
+        //console.log("update : ", update);
+        //const options = { new: true };
+        const updatedProduct = await Product.findOneAndUpdate({id:p_id}, {$set:{count: pcount - 1}}, {new:true});
         console.log(updatedProduct, "End of updatedProduct");
         res.send(JSON.stringify(updatedProduct));
     } catch (error) {
@@ -127,4 +147,12 @@ app.put("/update/", async (req, res) => {
         console.error(error);
         res.status(500).send(error);
     }
+});
+
+app.get("/featured", async (req, resp) => {
+    //await client.connect();
+    console.log("hello from get featured method");
+    const query = {featured: 1};
+    const featuredProducts = await Product.find(query);
+    resp.json(featuredProducts);
 });
