@@ -24,20 +24,30 @@ const Create = (props) => {
         setAddNewProduct({ ...addNewProduct, price: value });
         } else if (evt.target.name === "description") {
         setAddNewProduct({ ...addNewProduct, description: value });
-        } else if (evt.target.name === "category") {
-        setAddNewProduct({ ...addNewProduct, category: value });
+        } else if (evt.target.name === "amount") {
+        setAddNewProduct({ ...addNewProduct, count: value });
         } else if (evt.target.name === "image") {
         const temp = value;
         setAddNewProduct({ ...addNewProduct, image: temp });
         } else if (evt.target.name === "rate") {
-        setAddNewProduct({ ...addNewProduct, rating: { rate: value } });
+          setAddNewProduct({ ...addNewProduct, rating: { rate: value } });
+        } else if (evt.target.name === "playerImage") {
+        setAddNewProduct({ ...addNewProduct, playerImage: value });
+        } else if (evt.target.name === "team") {
+          setAddNewProduct({ ...addNewProduct, team: value });
         } else if (evt.target.name === "count") {
         const temp = addNewProduct.rating.rate;
         setAddNewProduct({
         ...addNewProduct,
         rating: { rate: temp, count: value },
         });
-      }
+        } else if (evt.target.name === "featured") {
+          setAddNewProduct({ ...addNewProduct, featured: value});
+        } else if (evt.target.name === "playerName") {
+          setAddNewProduct({ ...addNewProduct, playerTitle: value});
+        } else if (evt.target.name === "position") {
+          setAddNewProduct({ ...addNewProduct, position: value});
+        }
     }
     
       function handleOnSubmit(e) {
@@ -55,7 +65,7 @@ const Create = (props) => {
         if (data) {
         //const keys = Object.keys(data);
         const value = Object.values(data);
-        alert(value);
+        alert("Created new shoe item : " + value);
         }
         });
         }
@@ -68,16 +78,21 @@ return (
     <h3>Add a new product :</h3>
     <form action="">
       <input type="number" class="form-control" placeholder="id?" name="_id" value={addNewProduct._id} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="title?" name="title" value={addNewProduct.title} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="title?" name="title" value={addNewProduct.shoeTitle} onChange={handleChange} /><br/>
       <input type="number" class="form-control" placeholder="price?" name="price" value={addNewProduct.price} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="description?" name="description" value={addNewProduct.description} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="category?" name="category" value={addNewProduct.category} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="image?" name="image" value={addNewProduct.image} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="player description?" name="description" value={addNewProduct.playerDescription} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="count?" name="amount" value={addNewProduct.count} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="image?" name="image" value={addNewProduct.shoeImage} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="player image?" name="playerImage" value={addNewProduct.playerImage} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="player team?" name="team" value={addNewProduct.team} onChange={handleChange} /><br/>
       <input type="number" class="form-control" placeholder="rate?" name="rate" value={addNewProduct.rating.rate} onChange={handleChange} /><br/>
       <input type="number" class="form-control" placeholder="count?" name="count" value={addNewProduct.rating.count} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="is it featured?" name="featured" value={addNewProduct.featured} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="player name?" name="playerName" value={addNewProduct.playerTitle} onChange={handleChange} /><br/>
+      <input type="text" class="form-control" placeholder="player position?" name="position" value={addNewProduct.position} onChange={handleChange} /><br/>
       <button type="submit" class="btn btn-primary btn-lg" onClick={handleOnSubmit}>submit</button>
     </form>
-    <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Main')}>Return to Main</button> <br/>
+    <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Main</button> <br/>
   </div>
 
 
