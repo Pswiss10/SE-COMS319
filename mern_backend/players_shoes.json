@@ -1,57 +1,53 @@
 [
   {
-    "_id": 0,
-    "playerTitle": "James Harden",
-    "playerDescription": "James Harden is an electrifying shooter and passer, with an MVP in 2018. His presence on the court is like no other, and his signature step back has been destroying defenders and fooling refs every year.",
-    "position": "Shooting Guard",
-    "team": "Philidelphia 76ers",
-    "playerImage": "harden.webp",
-    "shoes": [
-      {
+        "_id": 0,
+        "playerTitle": "James Harden",
+        "playerDescription": "James Harden is an electrifying shooter and passer, with an MVP in 2018. His presence on the court is like no other, and his signature step back has been destroying defenders and fooling refs every year.",
+        "position": "Shooting Guard",
+        "team": "Philidelphia 76ers",
+        "playerImage": "harden.webp",
         "shoeTitle": "Adidas Harden Vol.6 ",
         "price": 160,
         "shoeImage": "images/shoes/luka-1.webp",
         "rating": { "rate": 4.6, "count": 88 },
         "count": 100,
         "featured": 1
-      }
-    ]
   },
   {
-    "_id": 1,
-    "playerTitle": "Kyrie Irving",
-    "playerDescription": "Kyrie Irving is often considered a generational great in the sport of basketball. And with him moving to the star-studded Dallas Mavericks, great things are expected of the team.",
-    "position": "Point Guard",
-    "team": "Dallas Mavericks",
-    "playerImage": "irving.webp",
-    "shoes": [
-      {
+        "_id": 1,
+        "playerTitle": "Kyrie Irving",
+        "playerDescription": "Kyrie Irving is often considered a generational great in the sport of basketball. And with him moving to the star-studded Dallas Mavericks, great things are expected of the team.",
+        "position": "Point Guard",
+        "team": "Dallas Mavericks",
+        "playerImage": "irving.webp",
         "shoeTitle": "Nike Kyrie Infinity ",
         "price": 70,
         "shoeImage": "images/shoes/kyrie-infinity.webp",
         "rating": { "rate": 4.1, "count": 259 },
         "count": 100,
         "featured": 1
-      },
-      {
+  },
+  {
+        "_id": 2,
+        "playerTitle": "Kyrie Irving",
+        "playerDescription": "Kyrie Irving is often considered a generational great in the sport of basketball. And with him moving to the star-studded Dallas Mavericks, great things are expected of the team.",
+        "position": "Point Guard",
+        "team": "Dallas Mavericks",
+        "playerImage": "irving.webp",
         "shoeTitle": "Nike Kyrie 7",
         "price": 300,
         "shoeImage": "images/shoes/kyrie-7.webp",
         "rating": { "rate": 4.4, "count": 27 },
         "count": 100,
         "featured": 0
-    }
-    ]
-  },
-  {
-    "_id": 2,
-    "playerTitle": "LeBron James",
-    "playerDescription": "LeBron James is in contention for the greatest basketball player of all time. With about 20 years on the court, his longevity is comparable to none.",
-    "position": "Small Forward",
-    "team": "Los Angeles Lakers",
-    "playerImage": "james.webp",
-    "shoes": [
+    },
         {
+            "_id": 3,
+            "playerTitle": "LeBron James",
+            "playerDescription": "LeBron James is in contention for the greatest basketball player of all time. With about 20 years on the court, his longevity is comparable to none.",
+            "position": "Small Forward",
+            "team": "Los Angeles Lakers",
+            "playerImage": "james.webp",
             "shoeTitle": "Nike LeBron 19",
             "price": 200,
             "shoeImage": "images/shoes/lebron-19.webp",
@@ -60,6 +56,12 @@
             "featured": 1
         },
         {
+            "_id": 4,
+            "playerTitle": "LeBron James",
+            "playerDescription": "LeBron James is in contention for the greatest basketball player of all time. With about 20 years on the court, his longevity is comparable to none.",
+            "position": "Small Forward",
+            "team": "Los Angeles Lakers",
+            "playerImage": "james.webp",
             "shoeTitle": "Nike LeBron Witness 7",
             "price": 105,
             "shoeImage": "images/shoes/lebron-witness-7.webp",
@@ -68,99 +70,115 @@
             "featured": 0
         },
         {
+            "_id": 5,
+            "playerTitle": "LeBron James",
+            "playerDescription": "LeBron James is in contention for the greatest basketball player of all time. With about 20 years on the court, his longevity is comparable to none.",
+            "position": "Small Forward",
+            "team": "Los Angeles Lakers",
+            "playerImage": "james.webp",
             "shoeTitle": "Nike LeBron XX",
             "price": 200,
             "shoeImage": "images/shoes/lebron-xx.webp",
             "rating": { "rate": 4.8, "count": 119 },
             "count": 100,
             "featured": 0
-        }
-    ]
-  },
+        },
   {
-    "_id": 3,
+    "_id": 6,
     "playerTitle": "Trae Young",
     "playerDescription": "Trae Young is one of the best guards on the court, and he consistently takes the Atlanta Hawks to stardom.",
     "position": "Point Guard",
     "team": "Atlanta Hawks",
     "playerImage": "young.webp",
-    "shoes": [
-      {
-        "shoeTitle": "Adidas Trae Young 2.0 ",
-        "price": 112,
-        "shoeImage": "images/shoes/trae-young-2.webp",
-        "rating": { "rate": 4.2, "count": 161 },
-        "count": 100,
-        "featured": 1
-      },
-      {
-        "shoeTitle": "Adidas Trae Unlimited",
-        "price": 90,
-        "shoeImage": "images/shoes/trae-unlimited.webp",
-        "rating": { "rate": 4.5, "count": 2 },
-        "count": 100,
-        "featured": 0
-    }
-    ]
+    "shoeTitle": "Adidas Trae Young 2.0 ",
+    "price": 112,
+    "shoeImage": "images/shoes/trae-young-2.webp",
+    "rating": { "rate": 4.2, "count": 161 },
+    "count": 100,
+    "featured": 1
   },
   {
-    "_id": 4,
+    "_id": 7,
+    "playerTitle": "Trae Young",
+    "playerDescription": "Trae Young is one of the best guards on the court, and he consistently takes the Atlanta Hawks to stardom.",
+    "position": "Point Guard",
+    "team": "Atlanta Hawks",
+    "playerImage": "young.webp",
+    "shoeTitle": "Adidas Trae Unlimited",
+    "price": 90,
+    "shoeImage": "images/shoes/trae-unlimited.webp",
+    "rating": { "rate": 4.5, "count": 2 },
+    "count": 100,
+    "featured": 0
+  },
+  {
+    "_id": 8,
     "playerTitle": "Luka Doncic",
     "playerDescription": "Luka Doncic has taken hold of the NBA in 2022, putting up incredible feats of talent in his play. He is considered to be one of the greatest Slovenian players of all time.",
     "position": "Point Guard",
     "team": "Dallas Mavericks",
     "playerImage": "doncic.webp",
-    "shoes": [
-      {
-        "shoeTitle": "Nike Luka 1 ",
-        "price": 110,
-        "shoeImage": "images/shoes/luka-1.webp",
-        "rating": { "rate": 4.1, "count": 259 },
-        "count": 100,
-        "featured": 1
-      }
-    ]
+    "shoeTitle": "Nike Luka 1 ",
+    "price": 110,
+    "shoeImage": "images/shoes/luka-1.webp",
+    "rating": { "rate": 4.1, "count": 259 },
+    "count": 100,
+    "featured": 1
   },
   {
-    "_id": 5,
+    "_id": 9,
     "playerTitle": "Kevin Durant",
     "playerDescription": "Kevin Durant is one of the most legendary players in the league. He makes teams into super teams. Often considered unguardable, He has the handles and shooting to be threat to any and every defense.",
     "position": "Small Forward",
     "team": "Phoenix Suns",
     "playerImage": "durant.webp",
-    "shoes": [
-        {
-            "shoeTitle": "Nike KD15",
-            "price": 150,
-            "shoeImage": "images/shoes/kd15.webp",
-            "rating": { "rate": 4.9, "count": 62 },
-            "count": 100,
-            "featured": 1
-        },
-        {
-            "shoeTitle": "Nike KD Trey 5 IX",
-            "price": 90,
-            "shoeImage": "images/shoes/kd-trey-ix.webp",
-            "rating": { "rate": 4.8, "count": 255 },
-            "count": 100,
-            "featured": 0
-        },
-        {
-            "shoeTitle": "Nike KD Trey 5 X",
-            "price": 95,
-            "shoeImage": "images/shoes/kd-trey-5-x.webp",
-            "rating": { "rate": 4.7, "count": 79 },
-            "count": 100,
-            "featured": 0
-        },
-        {
-            "shoeTitle": "Nike KD14",
-            "price": 160,
-            "shoeImage": "images/shoes/kd14.webp",
-            "rating": { "rate": 5.0, "count": 4 },
-            "count": 100,
-            "featured": 0
-        }
-    ]
-  }
+    "shoeTitle": "Nike KD15",
+    "price": 150,
+    "shoeImage": "images/shoes/kd15.webp",
+    "rating": { "rate": 4.9, "count": 62 },
+    "count": 100,
+    "featured": 1
+    },
+    {
+      "_id": 10,
+      "playerTitle": "Kevin Durant",
+      "playerDescription": "Kevin Durant is one of the most legendary players in the league. He makes teams into super teams. Often considered unguardable, He has the handles and shooting to be threat to any and every defense.",
+      "position": "Small Forward",
+      "team": "Phoenix Suns",
+      "playerImage": "durant.webp",
+      "shoeTitle": "Nike KD Trey 5 IX",
+      "price": 90,
+      "shoeImage": "images/shoes/kd-trey-ix.webp",
+      "rating": { "rate": 4.8, "count": 255 },
+      "count": 100,
+      "featured": 0
+    },
+    {
+      "_id": 11,
+      "playerTitle": "Kevin Durant",
+      "playerDescription": "Kevin Durant is one of the most legendary players in the league. He makes teams into super teams. Often considered unguardable, He has the handles and shooting to be threat to any and every defense.",
+      "position": "Small Forward",
+      "team": "Phoenix Suns",
+      "playerImage": "durant.webp",
+      "shoeTitle": "Nike KD Trey 5 X",
+      "price": 95,
+      "shoeImage": "images/shoes/kd-trey-5-x.webp",
+      "rating": { "rate": 4.7, "count": 79 },
+      "count": 100,
+      "featured": 0
+    },
+    {
+      "_id": 12,
+      "playerTitle": "Kevin Durant",
+      "playerDescription": "Kevin Durant is one of the most legendary players in the league. He makes teams into super teams. Often considered unguardable, He has the handles and shooting to be threat to any and every defense.",
+      "position": "Small Forward",
+      "team": "Phoenix Suns",
+      "playerImage": "durant.webp",
+      "shoeTitle": "Nike KD14",
+      "price": 160,
+      "shoeImage": "images/shoes/kd14.webp",
+      "rating": { "rate": 5.0, "count": 4 },
+      "count": 100,
+      "featured": 0
+    }
 ]

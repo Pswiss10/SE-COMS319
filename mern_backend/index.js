@@ -48,25 +48,33 @@ app.get("/:id", async (req, resp) => {
     resp.send(oneProduct);
 });
 
-app.post("/insert", async (req, res) => {
+app.post("/insert/", async (req, res) => {
     console.log(req.body);
     const p_id = req.body._id;
     const ptitle = req.body.title;
     const pprice = req.body.price;
     const pdescription = req.body.description;
-    const pcategory = req.body.category;
     const pimage = req.body.image;
     const prate = req.body.rating.rate;
     const pcount = req.body.rating.count;
-    
-    const formData = new Product({
+
+    const playerData = new Product({
         _id: p_id,
-        title: ptitle,
+        playerTitle: ptitle,
+        playerDescription: pdescription,
+        position: pposition,
+        team: pteam,
+        playerImage: pimage,
+        shoeTitle: pshoeTitle,
         price: pprice,
-        description: pdescription,
-        category: pcategory,
-        image: pimage,
-        rating: { rate: prate, count: pcount },
+        shoeImage: pshoeImage,
+        rating: 
+        { 
+            rate: prate, 
+            count: pcount 
+        },
+        count: pcount,
+        featured: pfeatured
     });
 
     try {
@@ -79,7 +87,7 @@ app.post("/insert", async (req, res) => {
     }
 });
 
-app.delete("/delete", async (req, res) => {
+app.delete("/delete/", async (req, res) => {
     console.log("Delete :", req.body);
     try {
     const query = { _id: req.body._id };
@@ -127,4 +135,15 @@ app.put("/update/", async (req, res) => {
         console.error(error);
         res.status(500).send(error);
     }
+});
+
+app.get("/featured", async (req, resp) => {
+
+    //await client.connect();
+    console.log("hello from get featured method");
+    const query = {};
+    const featuredProducts = await Product.find(query);
+   // console.log("Hello");
+    //console.log(allProducts);
+    resp.json(featuredProducts);
 });
