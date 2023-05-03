@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
-import items from "./selected_products.json";
+//import items from "./selected_products.json";
 import 'bootstrap/dist/css/bootstrap.css';
 
 
 const Cart = (props) => {
 
     const cartItems = props.cartItems;
+  //  console.log(cartItems);
     // rest of the component code
     let uniqueItems = [];
-    let itemQuantities = [0, 0, 0, 0, 0, 0];
+    let itemQuantities = new Array(50);
+    for (let i = 0; i < itemQuantities.length; i++){
+      itemQuantities[i] = 0;
+    }
     for (let i = 0; i < cartItems.length; ++i) {
-      itemQuantities[cartItems[i].id]++;
-      if(itemQuantities[cartItems[i].id] < 2) {
+      itemQuantities[cartItems[i]._id]++;
+      if(itemQuantities[cartItems[i]._id] < 2) {
         uniqueItems.push(cartItems[i]);
       }
     }
 
+   // console.log(itemQuantities);
+   // console.log(uniqueItems);
   const cartItemsList = uniqueItems.map((el) => (
-    <tr key={el.id}>
-      <th scope="row">{itemQuantities[el.id]}</th>
-        <td><img class="img-fluid" src={el.image} width={100} alt={el.description}/></td>
-        <td>{el.title}</td>
+    <tr key={el._id}>
+      <th scope="row">{itemQuantities[el._id]}</th>
+        <td><img class="img-fluid" src={el.shoeImage} width={100} alt={el.count}/></td>
+        <td>{el.shoeTitle}</td>
         <td>${el.price}</td>
     </tr>
   ));

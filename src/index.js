@@ -5,15 +5,15 @@ import Shop from "./Shop.js";
 import Cart from "./Cart.js";
 import Info from "./Info.js";
 import Featured from './Featured.js';
-import PlayerLines from './PlayerLines.js';
 import Student from './Student.js';
-
+import Delete from './Delete.js';
+import Create from './Create.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 'Featured',
+      currentView: 'Shop',
       cartTotal: 0,
       cartItems:[],
       FormData: {},
@@ -101,16 +101,22 @@ class App extends React.Component {
         <Featured  handleViewChange={this.handleViewChange} addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems}/>
       </React.StrictMode>
     }
-    else if(this.state.currentView === 'PlayerLines') {
-
-      view = <React.StrictMode>
-        <PlayerLines  handleViewChange={this.handleViewChange} addToCart={this.addToCart} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems}/>
-      </React.StrictMode>
-    }
     else if(this.state.currentView === 'Student') {
 
       view = <React.StrictMode>
         <Student  handleViewChange={this.handleViewChange}/>
+      </React.StrictMode>
+    }
+    else if(this.state.currentView === 'Create') {
+
+      view = <React.StrictMode>
+        <Create  handleViewChange={this.handleViewChange}/>
+      </React.StrictMode>
+    }
+    else if(this.state.currentView === 'Delete') {
+
+      view = <React.StrictMode>
+        <Delete  handleViewChange={this.handleViewChange}/>
       </React.StrictMode>
     }
 
