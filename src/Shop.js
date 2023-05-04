@@ -23,7 +23,7 @@ const Shop = (props) => {
 
     const cartItemList = cartItems.map((el) => (
         <div key={el._id}>
-           <img class="img-fluid" width={200} src={el.shoeImage} alt={el.count}/>
+           <img className="img-fluid" width={200} src={el.shoeImage} alt={el.count}/>
           {el.shoeTitle} - ${el.price}
         </div>
       ));
@@ -33,23 +33,23 @@ const Shop = (props) => {
       const listItems = filteredItems.map((el) => (
         <div key={el.id} >
 
-            <div class="card mb-3" style={{width: '540px'}}>
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img class="img-fluid" src={el.shoeImage} width={200} alt={el.count}/>
+            <div className="card mb-3" style={{width: '540px'}}>
+                <div className="row g-0">
+                    <div className="col-md-4">
+                        <img className="img-fluid" src={el.shoeImage} width={200} alt={el.count}/>
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{el.shoeTitle}</h5>
-                            <p class="card-text">Shoe Rating: {el.rating.rate} with {el.rating.count} reviews</p>
+                    <div className="col-md-8">
+                        <div className="card-body">
+                            <h5 className="card-title">{el.shoeTitle}</h5>
+                            <p className="card-text">Shoe Rating: {el.rating.rate} with {el.rating.count} reviews</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Price: ${el.price}</li>
-                            <li class="list-group-item">Amount in stock: {el.count} items</li>
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item">Price: ${el.price}</li>
+                            <li className="list-group-item">Amount in stock: {el.count} items</li>
                         </ul>
-                        <div class="card-body">
-                            <button type="button" class="btn btn-outline-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
-                            <button type="button" class="btn btn-outline-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
+                        <div className="card-body">
+                            <button type="button" className="btn btn-outline-primary" onClick={() => props.removeFromCart(el)}>-</button>{" "}
+                            <button type="button" className="btn btn-outline-primary" variant="light" onClick={() => props.addToCart(el)}> + </button>
                         </div>
                     </div>
                 </div>
@@ -62,12 +62,12 @@ const Shop = (props) => {
 
         return (
             <div>
-                <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
-                    <div class="container-fluid">
-                        <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Featured')} class="btn btn-secondary">Featured Shoes</button> <button onClick={() => props.handleViewChange('Student')} class="btn btn-secondary">Student Info</button> </p> 
-                        <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                <nav className="navbar sticky-top bg-primary" data-bs-theme="dark">
+                    <div className="container-fluid">
+                        <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} className="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Featured')} className="btn btn-secondary">Featured Shoes</button> <button onClick={() => props.handleViewChange('Student')} className="btn btn-secondary">Student Info</button> </p> 
+                        <span className="navbar-brand h1">Welcome to the Underground Shoe Store</span>
+                        <form className="d-flex" role="search">
+                            <input className="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                         </form>
                     </div>
                 </nav>

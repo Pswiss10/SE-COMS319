@@ -18,8 +18,8 @@ const Featured = (props) => {
        console.log("Show Catalog of Products :");
        console.log(data);
        setItems(data);
-       }, []);
-   });
+       });
+    }, []);
 
    const cartItemList = cartItems.map((el) => (
        <div key={el._id}>
