@@ -6,8 +6,8 @@ import Cart from "./Cart.js";
 import Info from "./Info.js";
 import Featured from './Featured.js';
 import Student from './Student.js';
-import Delete from './Delete.js';
-import Create from './Create.js';
+import Delete from './crudMethods/Delete.js';
+import Create from './crudMethods/Create.js';
 
 class App extends React.Component {
   constructor(props) {
