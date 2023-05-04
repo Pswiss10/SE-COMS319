@@ -73,7 +73,7 @@ const Featured = (props) => {
                <nav class="navbar sticky-top bg-primary" data-bs-theme="dark">
                    <div class="container-fluid">
                        <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} class="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Shop')} class="btn btn-secondary">All Shoes</button> <button onClick={() => props.handleViewChange('Student')} class="btn btn-secondary">Student Info</button> </p> 
-                       <span class="navbar-brand h1">Welcome to the Underground Shoe Store</span>
+                       <span class="navbar-brand h1">Featured Shoes</span>
                        <form class="d-flex" role="search">
                            <input class="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                        </form>
