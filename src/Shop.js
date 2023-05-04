@@ -31,9 +31,7 @@ const Shop = (props) => {
       const filteredItems = items.filter((item) => item.shoeTitle.toLowerCase().includes(searchTerm.toLowerCase()));
 
       const listItems = filteredItems.map((el) => (
-        <div key={el.id} >
-
-            <div className="card mb-3" style={{width: '540px'}}>
+        <div key={el.id} className="card mb-3 col-4 g-3">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img className="img-fluid" src={el.shoeImage} width={200} alt={el.count}/>
@@ -53,8 +51,6 @@ const Shop = (props) => {
                         </div>
                     </div>
                 </div>
-
-            </div>
         </div>
 
       ));
@@ -72,7 +68,7 @@ const Shop = (props) => {
                     </div>
                 </nav>
             
-                <div>{listItems}</div>
+                <div className="row p-3">{listItems}</div>
             </div>
             );
 }
