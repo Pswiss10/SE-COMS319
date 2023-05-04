@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 'Shop',
+      currentView: 'Featured',
       cartTotal: 0,
       cartItems:[],
       FormData: {},
@@ -91,7 +91,7 @@ class App extends React.Component {
       view = <React.StrictMode>
       <Info cartItems={this.state.cartItems} formData={this.state.formData}/>
       <div class="p-3">
-        <button class="btn btn-outline-primary" onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()}>Home Page</button>
+        <button class="btn btn-outline-primary" onClick={() => this.handleViewChange('Featured')} onClickCapture={() => this.clearCart()}>Home Page</button>
       </div>
       </React.StrictMode>;
     }

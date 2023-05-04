@@ -55,6 +55,7 @@ const Delete = (props) => {
     }
     });
     setChecked4(!checked4);
+    setIndex(0);
     }
 
   return (
@@ -82,7 +83,7 @@ const Delete = (props) => {
         )}
       </div>
       <div class="p-3">
-      <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Main</button> <br/>
+      <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Student Info</button> <br/>
       </div>
       
 
