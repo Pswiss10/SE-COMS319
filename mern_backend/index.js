@@ -142,10 +142,10 @@ app.put("/update/", async (req, res) => {
         console.log("entered try");
         const query = { _id: p_id };
         console.log("id: ", query);
-        //const update = { price: pprice };
-        //console.log("update : ", update);
+        const update = { count: pcount };
+        console.log("update : ", update);
         //const options = { new: true };
-        const updatedProduct = await Product.findOneAndUpdate({id:p_id}, {$set:{count: pcount - 1}}, {new:true});
+        const updatedProduct = await Product.findOneAndUpdate({_id:p_id}, {$set:{count: pcount}}, {new:true});
         console.log(updatedProduct, "End of updatedProduct");
         res.send(JSON.stringify(updatedProduct));
     } catch (error) {

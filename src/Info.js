@@ -5,8 +5,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Info = (props) => {
 
+  const [timesToRun, setTimesToRun] = useState(0);
   const cartItems = props.cartItems;
   const formData = new FormData(props.formData.target);
+  let index = 0;
   let hiddenCCN = "XXXX-XXXX-XXXX-" + formData.get("ccn").substr(12, 4);
     // rest of the component code
     let uniqueItems = [];
@@ -20,6 +22,31 @@ const Info = (props) => {
         uniqueItems.push(cartItems[i]);
       }
     }
+
+    for (let i = 0; i < uniqueItems.length; i++){
+      updateOneProduct(uniqueItems[i], i)
+    }
+    
+
+    function updateOneProduct(cartItem, i) {
+      fetch("http://localhost:4000/update/", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          _id: cartItem._id, 
+          count: cartItem.count - itemQuantities[cartItem._id]
+         }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+        console.log("Update completed : ", cartItems[index]._id);
+        console.log(data);
+        if (data) {
+        //const keys = Object.keys(data);
+        //alert("Update completed of Product with ID = " + cartItems[index]._id);
+        }
+        });
+      };
 
     const cartItemsList = uniqueItems.map((el) => (
       <tr key={el._id}>
