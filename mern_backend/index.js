@@ -49,10 +49,13 @@ app.get("/", async (req, resp) => {
     }
 });
 
+// Get shoes that are featured.
 app.get("/featured/", async (req, resp) => {
 
     try{
         console.log("hello from get featured method");
+
+        // Query shoes that have a "featured" value of 1.
         const query = {featured: 1};
         const featuredProducts = await Product.find(query);
         resp.json(featuredProducts);
