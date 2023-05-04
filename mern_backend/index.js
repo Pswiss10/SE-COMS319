@@ -48,6 +48,20 @@ app.get("/", async (req, resp) => {
         alert(error);
     }
 });
+
+app.get("/featured/", async (req, resp) => {
+
+    try{
+        console.log("hello from get featured method");
+        const query = {featured: 1};
+        const featuredProducts = await Product.find(query);
+        resp.json(featuredProducts);
+    } 
+    catch (error){
+        console.log(error);
+        alert(error);
+    }
+});
     
 // Get a shoe by id
 app.get("/:id", async (req, resp) => {
@@ -170,19 +184,5 @@ app.put("/update/", async (req, res) => {
         console.log("Errored out");
         console.error(error);
         res.status(500).send(error);
-    }
-});
-
-app.get("/featured/", async (req, resp) => {
-
-    try{
-        console.log("hello from get featured method");
-        const query = {};
-        const featuredProducts = await Product.find(query);
-        resp.json(featuredProducts);
-    } 
-    catch (error){
-        console.log(error);
-        alert(error);
     }
 });
