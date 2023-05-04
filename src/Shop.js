@@ -65,7 +65,7 @@ const Shop = (props) => {
                 <nav className="navbar sticky-top bg-primary" data-bs-theme="dark">
                     <div className="container-fluid">
                         <p>Number of items in Cart : {cartItemList.length} Items <button onClick={() => props.handleViewChange('Cart')} className="btn btn-secondary">Checkout</button> <button onClick={() => props.handleViewChange('Featured')} className="btn btn-secondary">Featured Shoes</button> <button onClick={() => props.handleViewChange('Student')} className="btn btn-secondary">Student Info</button> </p> 
-                        <span className="navbar-brand h1">Welcome to the Underground Shoe Store</span>
+                        <span className="navbar-brand h1">All shoes in the Store</span>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                         </form>
