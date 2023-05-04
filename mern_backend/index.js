@@ -38,16 +38,15 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 // Get all shoes that are in stock
 app.get("/", async (req, resp) => {
 
-    //await client.connect();
-    console.log("hello from get all method");
-
-    // Finding all the shoes that satisfy the query
-    const query = {count: pcount >= 1};
-    const allProducts = await Product.find(query);
-
-   // console.log("Hello");
-    //console.log(allProducts);
-    resp.json(allProducts);
+    try {
+        console.log("hello from get all method!!");
+        const query = {};
+        const allProducts = await Product.find(query);
+        resp.json(allProducts);
+    } catch (error) {
+        console.log(error);
+        alert(error);
+    }
 });
     
 // Get a shoe by id
@@ -175,13 +174,14 @@ app.put("/update/", async (req, res) => {
 });
 
 app.get("/featured/", async (req, resp) => {
-    //await client.connect();
+
     try{
         console.log("hello from get featured method");
-        const query = {featured: 1};
+        const query = {};
         const featuredProducts = await Product.find(query);
         resp.json(featuredProducts);
-    } catch (error){
+    } 
+    catch (error){
         console.log(error);
         alert(error);
     }
