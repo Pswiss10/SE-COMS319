@@ -10,11 +10,11 @@ const Create = (props) => {
         playerDescription: "",
         position: "",
         team: "",
-        playerImage: "http://127.0.0.1:4000/images/Players/",
+        playerImage: "/images/Players/",
         shoeTitle: "",
         price: '',
-        shoeImage: "http://127.0.0.1:4000/images/Shoes/",
-        rating: { "rate": '', "count": '' },
+        shoeImage: "/images/Shoes/",
+        rating: { rate: '', count: '' },
         count: '',
         featured: ''
     });
@@ -24,27 +24,26 @@ const Create = (props) => {
       if (evt.target.name === "_id") {
         setAddNewProduct({ ...addNewProduct, _id: value });
       } else if (evt.target.name === "title") {
-        setAddNewProduct({ ...addNewProduct, title: value });
+        setAddNewProduct({ ...addNewProduct, shoeTitle: value });
         } else if (evt.target.name === "price") {
         setAddNewProduct({ ...addNewProduct, price: value });
         } else if (evt.target.name === "description") {
-        setAddNewProduct({ ...addNewProduct, description: value });
+        setAddNewProduct({ ...addNewProduct, playerDescription: value });
         } else if (evt.target.name === "amount") {
         setAddNewProduct({ ...addNewProduct, count: value });
         } else if (evt.target.name === "image") {
         const temp = value;
-        setAddNewProduct({ ...addNewProduct, image: temp });
+        setAddNewProduct({ ...addNewProduct, shoeImage: temp });
         } else if (evt.target.name === "rate") {
-          setAddNewProduct({ ...addNewProduct, rating: { rate: value } });
+          const temp = addNewProduct.rating.count;
+          setAddNewProduct({ ...addNewProduct, rating: { rate: value, count: temp } });
         } else if (evt.target.name === "playerImage") {
         setAddNewProduct({ ...addNewProduct, playerImage: value });
         } else if (evt.target.name === "team") {
           setAddNewProduct({ ...addNewProduct, team: value });
         } else if (evt.target.name === "count") {
         const temp = addNewProduct.rating.rate;
-        setAddNewProduct({
-        ...addNewProduct,
-        rating: { rate: temp, count: value },
+        setAddNewProduct({...addNewProduct, rating: { rate: temp, count: value },
         });
         } else if (evt.target.name === "featured") {
           setAddNewProduct({ ...addNewProduct, featured: value});
@@ -86,7 +85,7 @@ return (
       <input type="text" class="form-control" placeholder="Shoe name?" name="title" value={addNewProduct.shoeTitle} onChange={handleChange} /><br/>
       <input type="number" class="form-control" placeholder="Price?" name="price" value={addNewProduct.price} onChange={handleChange} /><br/>
       <input type="text" class="form-control" placeholder="Player description?" name="description" value={addNewProduct.playerDescription} onChange={handleChange} /><br/>
-      <input type="text" class="form-control" placeholder="Total stock?" name="amount" value={addNewProduct.count} onChange={handleChange} /><br/>
+      <input type="number" class="form-control" placeholder="Total stock?" name="amount" value={addNewProduct.count} onChange={handleChange} /><br/>
       <input type="text" class="form-control" placeholder="Shoe image?" name="image" value={addNewProduct.shoeImage} onChange={handleChange} /><br/>
       <input type="text" class="form-control" placeholder="Player image?" name="playerImage" value={addNewProduct.playerImage} onChange={handleChange} /><br/>
       <input type="text" class="form-control" placeholder="Player team?" name="team" value={addNewProduct.team} onChange={handleChange} /><br/>
@@ -97,7 +96,7 @@ return (
       <input type="text" class="form-control" placeholder="Player position?" name="position" value={addNewProduct.position} onChange={handleChange} /><br/>
       <button type="submit" class="btn btn-primary btn-lg" onClick={handleOnSubmit}>submit</button>
     </form>
-    <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Main</button> <br/>
+    <button type="button" class="btn btn-primary btn-lg" onClick={() => props.handleViewChange('Student')}>Return to Student Info</button> <br/>
   </div>
 
 

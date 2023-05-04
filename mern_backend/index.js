@@ -92,6 +92,7 @@ app.post("/insert/", async (req, res) => {
     const pimage = req.body.playerImage;
     const prate = req.body.rating.rate;
     const pcount = req.body.rating.count;
+    const pstock = req.body.count;
     const pposition = req.body.position;
     const pteam = req.body.team;
     const pshoeTitle = req.body.shoeTitle;
@@ -115,14 +116,14 @@ app.post("/insert/", async (req, res) => {
             rate: prate, 
             count: pcount 
         },
-        count: pcount,
+        count: pstock,
         featured: pfeatured
     });
 
     // Try to add the new shoe to the database
     try {
         // await formData.save();
-        await Product.create(playerData);
+        await Product.create(formData);
         const messageResponse = { message: `Product ${p_id} added correctly` };
         res.send(JSON.stringify(messageResponse));
     } catch (err) {
