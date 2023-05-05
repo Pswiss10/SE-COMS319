@@ -31,7 +31,8 @@ const Featured = (props) => {
     const filteredItems = items.filter((item) => item.shoeTitle.toLowerCase().includes(searchTerm.toLowerCase()));
 
     const listItems = filteredItems.map((el) => (
-    <div key={el.id} className="featured-div card mb-3 g-3 col-4">
+    <div key={el.id} className="col-4 g-3">
+        <div className="card mb-3 h-100">
             <div className="row g-3 p-3 justify-content-start">
                 <div className="col-md-4">
                    <img className="img-fluid" src={el.playerImage} width={200} alt={el.playerDescription}/>
@@ -68,6 +69,7 @@ const Featured = (props) => {
                 </div>
             </div>
         </div>
+    </div>
     ));
 
 
@@ -82,7 +84,7 @@ const Featured = (props) => {
                         </form>
                     </div>
                 </nav>
-                <div className="row p-3">{listItems}</div>
+                <div className="row p-3 bg-light">{listItems}</div>
             </div>
         );
 };
