@@ -51,7 +51,7 @@ const Info = (props) => {
     const cartItemsList = uniqueItems.map((el) => (
       <tr key={el._id}>
         <th scope="row">{itemQuantities[el._id]}</th>
-          <td><img class="img-fluid" src={el.shoeImage} width={100} alt={el.count}/></td>
+          <td><img className="img-fluid" src={el.shoeImage} width={100} alt={el.count}/></td>
           <td>{el.shoeTitle}</td>
           <td>${el.price}</td>
       </tr>
@@ -67,10 +67,10 @@ const Info = (props) => {
   //returns the html for the info screen
   return (
     <div>
-      <div class=" h4 bg-primary text-light p-3">Thank you for your purchase!</div>
-      <div class="p-3">
-        <div class="h5">Order Summary</div>
-        <table class="table table-striped">
+      <div className=" h4 bg-primary text-light p-3">Thank you for your purchase!</div>
+      <div className="p-3">
+        <div className="h5">Order Summary</div>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">Quantity</th>
@@ -79,10 +79,10 @@ const Info = (props) => {
               <th scope="col">Price</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
+          <tbody className="table-group-divider">
             {cartItemsList}
           </tbody>
-          <tfoot class="table-group-divider">
+          <tfoot className="table-group-divider">
             <tr>
               <th scope="col" colSpan="3">Total</th>
                 <td>${totalPrice}</td>
@@ -90,10 +90,10 @@ const Info = (props) => {
           </tfoot>
         </table>
       </div>
-      <div class="p-3">
-        <div class="h5">Payment Information</div>
-        <div class="bg-light border">
-          <table class="table table-sm table-borderless">
+      <div className="p-3">
+        <div className="h5">Payment Information</div>
+        <div className="bg-light border">
+          <table className="table table-sm table-borderless">
             <tbody>
               <tr>
                 <th>Name</th>
