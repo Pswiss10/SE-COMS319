@@ -9,10 +9,13 @@ import Student from './Student.js';
 import Delete from './Delete.js';
 import Create from './Create.js';
 
+
+//This Javascript file controls the different views and holds the users cart
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      //Current View state holds the value for what screen the user is on
       currentView: 'Featured',
       cartTotal: 0,
       cartItems:[],
@@ -23,10 +26,12 @@ class App extends React.Component {
     this.removeFromCart = this.removeFromCart.bind(this);
   }
 
+  //clears the user's cart
   clearCart(){
     this.setState({cartItems: []});
   }
 
+  //method that each screen gets through props to change the state
   handleViewChange(view) {
     if (this.state.currentView === 'Cart' && this.state.cartItems.length === 0 && view === 'Info'){
       console.log("no items in cart");
@@ -35,18 +40,21 @@ class App extends React.Component {
     }
   }
 
+  //adds item to cart
   addToCart(el) {
     this.setState(prevState => ({
       cartItems: [...prevState.cartItems, el]
     }));
   }
 
+  //removes item to cart
   removeFromCart(el) {
     this.setState(prevState => ({
       cartItems: prevState.cartItems.filter((cartItem) => cartItem.id !== el.id)
     }));
   }
 
+  //handles the submit for the user when they enter their credit card info
   handleSubmit = (formData) => {
     formData.preventDefault(); 
     const data = new FormData(formData.target);
@@ -64,6 +72,7 @@ class App extends React.Component {
     
   };
 
+  //the method will choose what screen to render based on the currentView's state
   render() {
     let view;
 
@@ -77,10 +86,10 @@ class App extends React.Component {
       view = <React.StrictMode>
       <div class="row p-3 justify-contents-start">
         <div class="col-2">
-          <button class="btn btn-outline-primary" onClick={() => this.handleViewChange('Shop')}>Return to List</button> 
+          <button class="btn btn-outline-primary" onClick={() => this.handleViewChange('Featured')}>Return to List</button> 
         </div>
         <div class="col-2">
-          <button class="btn btn-outline-primary" onClick={() => this.handleViewChange('Shop')} onClickCapture={() => this.clearCart()}>Cancel Purchase</button>
+          <button class="btn btn-outline-primary" onClick={() => this.handleViewChange('Featured')} onClickCapture={() => this.clearCart()}>Cancel Purchase</button>
         </div>
         
       </div>
@@ -126,6 +135,7 @@ class App extends React.Component {
   }
 }
 
+//displays the current page through reactDom
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <App />

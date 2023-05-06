@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-//import items from "./selected_products.json";
 import 'bootstrap/dist/css/bootstrap.css';
 
-
+//this contains all the methods that will displat the order confirmation screen
 const Info = (props) => {
 
-  const [timesToRun, setTimesToRun] = useState(0);
   const cartItems = props.cartItems;
   const formData = new FormData(props.formData.target);
   let index = 0;
   let hiddenCCN = "XXXX-XXXX-XXXX-" + formData.get("ccn").substr(12, 4);
-    // rest of the component code
+  //the following code finds all the quatinites and unique items from the users cart
     let uniqueItems = [];
     let itemQuantities = new Array(50);
     for (let i = 0; i < itemQuantities.length; i++){
@@ -23,12 +21,13 @@ const Info = (props) => {
       }
     }
 
+    //updates all the items in the cart
     for (let i = 0; i < uniqueItems.length; i++){
-      updateOneProduct(uniqueItems[i], i)
+      updateOneProduct(uniqueItems[i]);
     }
     
-
-    function updateOneProduct(cartItem, i) {
+    //calls the update function on the item that was passed in
+    function updateOneProduct(cartItem) {
       fetch("http://localhost:4000/update/", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -48,6 +47,7 @@ const Info = (props) => {
         });
       };
 
+     // maps all the items in the cart in a table to be displayed later
     const cartItemsList = uniqueItems.map((el) => (
       <tr key={el._id}>
         <th scope="row">{itemQuantities[el._id]}</th>
@@ -59,11 +59,12 @@ const Info = (props) => {
 
   let totalPrice = 0;
 
+  //finds the total price to be displayed
   for (let i = 0; i < cartItems.length; ++i) {
     totalPrice += cartItems[i].price;
   }
 
-  
+  //returns the html for the info screen
   return (
     <div>
       <div class=" h4 bg-primary text-light p-3">Thank you for your purchase!</div>

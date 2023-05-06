@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 
-
+//This is display the 'all shoes' screen
 const Shop = (props) => {
-   
-   // const [cart, setCart] = useState([]);
-   // const [cartTotal, setCartTotal] = useState(0);
     const [searchTerm, setSearchTerm] = useState("");
     const [items, setItems] = useState([]);
 
     const cartItems = props.cartItems;
 
+    //this Will grab all the database's shoes and set them into the items state
     useEffect(() => {
         fetch("http://localhost:4000/")
         .then((response) => response.json())
         .then((data) => {
-      //  console.log("Show Catalog of Products :");
-       // console.log(data);
         setItems(data);
         });
     }, []);
 
+    //maps all the items in the user's cart to html, This it never really used but can be used to display the user's
+    //cart from outside of the checkout screen
     const cartItemList = cartItems.map((el) => (
         <div key={el._id}>
            <img className="img-fluid" width={200} src={el.shoeImage} alt={el.count}/>
@@ -28,8 +26,10 @@ const Shop = (props) => {
         </div>
       ));
 
+      //search bar implementation
       const filteredItems = items.filter((item) => item.shoeTitle.toLowerCase().includes(searchTerm.toLowerCase()));
 
+      //maps all items from the database get into columns and cards to be displayed for the user
       const listItems = filteredItems.map((el) => (
         <div key={el.id} className="card mb-3 col-4 g-3">
                 <div className="row g-0">
@@ -55,7 +55,7 @@ const Shop = (props) => {
 
       ));
 
-
+        //returns the html to be used for the All shoes page
         return (
             <div>
                 <nav className="navbar sticky-top bg-primary" data-bs-theme="dark">

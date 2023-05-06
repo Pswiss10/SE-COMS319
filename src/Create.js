@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 
-
+//screen that displays all the create html needed
 const Create = (props) => {
 
+  //state varable to hold all the inputs for the post method
   const [addNewProduct, setAddNewProduct] = useState({
         _id: '',
         playerTitle: "",
@@ -19,6 +20,8 @@ const Create = (props) => {
         featured: ''
     });
     
+
+    //changes the value in the state variable depending on the input field that changes
     function handleChange(evt) {
       const value = evt.target.value;
       if (evt.target.name === "_id") {
@@ -54,6 +57,7 @@ const Create = (props) => {
         }
     }
     
+    //creates the new shoe in the database
       function handleOnSubmit(e) {
         e.preventDefault();
         console.log(e.target.value);
@@ -74,7 +78,7 @@ const Create = (props) => {
         });
         }
 
-
+//has all the html to display the create screen
 return (
 
 <div>

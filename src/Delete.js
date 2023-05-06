@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 
-
+//contains all the methods for displaying the delete screen
 const Delete = (props) => {
   const [checked4, setChecked4] = useState(false);
   const [index, setIndex] = useState(0);
   const [product, setProduct] = useState([]);
 
-  
+  //gets all the products when the user clicks the checkbox
   useEffect(() => {
     getAllProducts();
     }, [checked4]);
 
+    //fetches all the shoes from the database
   function getAllProducts() {
     fetch("http://localhost:4000/")
     .then((response) => response.json())
@@ -22,6 +23,7 @@ const Delete = (props) => {
     });
   }
 
+  //looks at the next product to delete
   function getOneByOneProductNext() {
     if (product.length > 0) {
     if (index === product.length - 1) setIndex(0);
@@ -29,6 +31,7 @@ const Delete = (props) => {
     }
     }
 
+    //looks at the previous product to delete
   function getOneByOneProductPrev() {
     if (product.length > 0) {
     if (index === 0) setIndex(product.length - 1);
@@ -37,6 +40,7 @@ const Delete = (props) => {
     }
     }
 
+    //deletes the selected product that the user has showing on the screen
   function deleteOneProduct(deleteid) {
     console.log("Product to delete :", deleteid);
     fetch("http://localhost:4000/delete/", {
@@ -58,6 +62,7 @@ const Delete = (props) => {
     setIndex(0);
     }
 
+    //returns the html that shows the delete page
   return (
     <div>
       <div class="p-3">
@@ -74,7 +79,7 @@ const Delete = (props) => {
         {checked4 && (
         <div key={product[index]._id}>
         <img src={product[index].shoeImage} width={30} alt="yes"/> <br />
-        Id:{product[index].id} <br />
+        Id:{product[index]._id} <br />
         Title: {product[index].shoeTitle} <br />
         Stock: {product[index].count} <br />
         Price: {product[index].price} <br />
@@ -90,9 +95,6 @@ const Delete = (props) => {
   </div>
 
 )
-
-
-
 }
 
 export default Delete;
